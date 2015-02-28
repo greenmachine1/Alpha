@@ -13,7 +13,6 @@
 		321E11661A9EAD2500247E94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321E11651A9EAD2500247E94 /* Images.xcassets */; };
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
-		321E117F1A9EADE600247E94 /* TimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E117E1A9EADE600247E94 /* TimerObject.swift */; };
 		321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11801A9EB34B00247E94 /* AddNewTimer.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		321E116E1A9EAD2500247E94 /* Alpha_take2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alpha_take2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
-		321E117E1A9EADE600247E94 /* TimerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerObject.swift; sourceTree = "<group>"; };
 		321E11801A9EB34B00247E94 /* AddNewTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +85,6 @@
 				321E11651A9EAD2500247E94 /* Images.xcassets */,
 				321E11671A9EAD2500247E94 /* LaunchScreen.xib */,
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
-				321E117E1A9EADE600247E94 /* TimerObject.swift */,
 				321E11801A9EB34B00247E94 /* AddNewTimer.swift */,
 			);
 			path = Alpha_take2;
@@ -220,7 +217,6 @@
 			files = (
 				321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
-				321E117F1A9EADE600247E94 /* TimerObject.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +411,7 @@
 				321E117A1A9EAD2500247E94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		321E117B1A9EAD2500247E94 /* Build configuration list for PBXNativeTarget "Alpha_take2Tests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +420,7 @@
 				321E117D1A9EAD2500247E94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,26 +8,19 @@
 
 import UIKit
 
-@objc protocol ReturnInfo{
-    
-    
-    
-}
-
-class AddNewTimer: UIViewController {
+class AddNewTimer: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var nameTextField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
     }
-
-    @IBAction func doneButtonOnClick(sender: UIButton) {
-        
-        
-        
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
+
 }

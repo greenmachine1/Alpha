@@ -8,29 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
-    var timerObjectDictionary:[String:TimerObject] = [:]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var addNewTimerButton = UIBarButtonItem(title: "Create New Event", style: UIBarButtonItemStyle.Plain, target: self, action: "addTimerButtonOnClick")
+        self.navigationItem.rightBarButtonItem = addNewTimerButton
         
-
     }
-
-    @IBAction func addNewOnClick(sender: UIButton) {
+    
+    
+    
+    
+    // adding a new timer //
+    func addTimerButtonOnClick(){
         
-        /*
-        var timer:TimerObject = TimerObject(personName: "Cory", additionOrSubtraction: true)
+        var addNewTimerController = self.storyboard?.instantiateViewControllerWithIdentifier("Timer") as AddNewTimer
         
-        // inserting an object into the dictionary //
-        timerObjectDictionary.updateValue(timer, forKey: "Cory")
-        */
+        self.navigationController?.pushViewController(addNewTimerController, animated: true)
         
-        
-        var newTimer = self.storyboard?.instantiateViewControllerWithIdentifier("Timer") as UIViewController
-        self.navigationController?.pushViewController(newTimer, animated: true)
     }
+    
 }
 
