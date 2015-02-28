@@ -36,29 +36,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpC-ib-hBX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Event" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpC-ib-hBX">
                                 <rect key="frame" x="16" y="87" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUI-y8-yFy">
-                                <rect key="frame" x="16" y="150" width="568" height="30"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TkH-3B-Zof">
+                                <rect key="frame" x="16" y="305" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Default Times"/>
+                                    <segment title="Custom Times"/>
+                                </segments>
+                                <connections>
+                                    <action selector="defaultCustomSegmentOnClick:" destination="WDc-0s-7Tp" eventType="valueChanged" id="dZL-8m-7kH"/>
+                                </connections>
+                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-IZ-Reu">
+                                <rect key="frame" x="16" y="125" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="WDc-0s-7Tp" id="lJn-aS-DIb"/>
+                                    <outlet property="delegate" destination="WDc-0s-7Tp" id="Qh6-ql-ibE"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.34108407280000003" green="0.8156547583" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OpC-ib-hBX" firstAttribute="leading" secondItem="IUI-y8-yFy" secondAttribute="leading" id="3ef-cK-ZqN"/>
-                            <constraint firstItem="IUI-y8-yFy" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="9vM-N7-Q7t"/>
-                            <constraint firstItem="rKT-rH-GP2" firstAttribute="top" secondItem="IUI-y8-yFy" secondAttribute="bottom" constant="420" id="KHV-0I-mD0"/>
-                            <constraint firstItem="OpC-ib-hBX" firstAttribute="trailing" secondItem="IUI-y8-yFy" secondAttribute="trailing" id="R5o-vs-c1D"/>
-                            <constraint firstItem="IUI-y8-yFy" firstAttribute="top" secondItem="OpC-ib-hBX" secondAttribute="bottom" constant="33" id="YmX-3c-QBw"/>
-                            <constraint firstItem="IUI-y8-yFy" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="cCc-Z6-LUA"/>
+                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="96D-6L-Upd"/>
+                            <constraint firstItem="OpC-ib-hBX" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="9YN-Lg-Fiw"/>
+                            <constraint firstItem="OpC-ib-hBX" firstAttribute="top" secondItem="Dx0-s9-EJ8" secondAttribute="bottom" constant="23" id="DSk-Fq-XV3"/>
+                            <constraint firstItem="TkH-3B-Zof" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="HmE-jO-3x1"/>
+                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="top" secondItem="OpC-ib-hBX" secondAttribute="bottom" constant="8" id="WNn-kg-hfq"/>
+                            <constraint firstItem="OpC-ib-hBX" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="hdQ-JF-tTb"/>
+                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="nq8-46-pha"/>
+                            <constraint firstItem="TkH-3B-Zof" firstAttribute="top" secondItem="hXi-IZ-Reu" secondAttribute="bottom" constant="18" id="pHB-3e-luy"/>
+                            <constraint firstItem="TkH-3B-Zof" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="sO2-EA-iKD"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="defaultCustomSegment" destination="TkH-3B-Zof" id="Pqh-V0-OdQ"/>
+                        <outlet property="mainPickerView" destination="hXi-IZ-Reu" id="Rhc-kc-tR0"/>
                         <outlet property="nameTextField" destination="OpC-ib-hBX" id="UBs-Xh-s8q"/>
                     </connections>
                 </viewController>
