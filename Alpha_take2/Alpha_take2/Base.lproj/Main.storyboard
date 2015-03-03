@@ -36,52 +36,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Event" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpC-ib-hBX">
-                                <rect key="frame" x="16" y="87" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TkH-3B-Zof">
-                                <rect key="frame" x="16" y="305" width="568" height="29"/>
-                                <segments>
-                                    <segment title="Default Times"/>
-                                    <segment title="Custom Times"/>
-                                </segments>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-9R-c1X">
+                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
                                 <connections>
-                                    <action selector="defaultCustomSegmentOnClick:" destination="WDc-0s-7Tp" eventType="valueChanged" id="dZL-8m-7kH"/>
+                                    <segue destination="2Tq-5q-79h" kind="embed" id="aQu-as-eTg"/>
                                 </connections>
-                            </segmentedControl>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-IZ-Reu">
-                                <rect key="frame" x="16" y="125" width="568" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="WDc-0s-7Tp" id="lJn-aS-DIb"/>
-                                    <outlet property="delegate" destination="WDc-0s-7Tp" id="Qh6-ql-ibE"/>
-                                </connections>
-                            </pickerView>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.34108407280000003" green="0.8156547583" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="96D-6L-Upd"/>
-                            <constraint firstItem="OpC-ib-hBX" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="9YN-Lg-Fiw"/>
-                            <constraint firstItem="OpC-ib-hBX" firstAttribute="top" secondItem="Dx0-s9-EJ8" secondAttribute="bottom" constant="23" id="DSk-Fq-XV3"/>
-                            <constraint firstItem="TkH-3B-Zof" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="HmE-jO-3x1"/>
-                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="top" secondItem="OpC-ib-hBX" secondAttribute="bottom" constant="8" id="WNn-kg-hfq"/>
-                            <constraint firstItem="OpC-ib-hBX" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="hdQ-JF-tTb"/>
-                            <constraint firstItem="hXi-IZ-Reu" firstAttribute="leading" secondItem="mg5-2D-cTQ" secondAttribute="leadingMargin" id="nq8-46-pha"/>
-                            <constraint firstItem="TkH-3B-Zof" firstAttribute="top" secondItem="hXi-IZ-Reu" secondAttribute="bottom" constant="18" id="pHB-3e-luy"/>
-                            <constraint firstItem="TkH-3B-Zof" firstAttribute="trailing" secondItem="mg5-2D-cTQ" secondAttribute="trailingMargin" id="sO2-EA-iKD"/>
-                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="defaultCustomSegment" destination="TkH-3B-Zof" id="Pqh-V0-OdQ"/>
-                        <outlet property="mainPickerView" destination="hXi-IZ-Reu" id="Rhc-kc-tR0"/>
-                        <outlet property="nameTextField" destination="OpC-ib-hBX" id="UBs-Xh-s8q"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRV-qo-rYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1757" y="317"/>
+        </scene>
+        <!--Table Table View Controller-->
+        <scene sceneID="sel-XM-S72">
+            <objects>
+                <tableViewController id="2Tq-5q-79h" customClass="TableTableViewController" customModule="Alpha_take2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="Li6-ZB-SaH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="z2F-4q-IUr" customClass="CustomCellTableViewCell" customModule="Alpha_take2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z2F-4q-IUr" id="egz-f1-4uP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsP-9e-Ie3">
+                                            <rect key="frame" x="92" y="8" width="500" height="64"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z4S-Lu-29n">
+                                            <rect key="frame" x="8" y="8" width="80" height="64"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CsP-9e-Ie3" firstAttribute="leading" secondItem="Z4S-Lu-29n" secondAttribute="trailing" constant="4" id="28w-dz-3ur"/>
+                                        <constraint firstItem="Z4S-Lu-29n" firstAttribute="bottom" secondItem="CsP-9e-Ie3" secondAttribute="bottom" id="5em-Vo-RCK"/>
+                                        <constraint firstItem="Z4S-Lu-29n" firstAttribute="top" secondItem="CsP-9e-Ie3" secondAttribute="top" id="Kjb-cB-rSB"/>
+                                        <constraint firstItem="Z4S-Lu-29n" firstAttribute="leading" secondItem="egz-f1-4uP" secondAttribute="leadingMargin" id="N59-4H-hAG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="CsP-9e-Ie3" secondAttribute="bottom" constant="-0.5" id="Qpr-SQ-gBS"/>
+                                        <constraint firstItem="CsP-9e-Ie3" firstAttribute="top" secondItem="egz-f1-4uP" secondAttribute="topMargin" id="YA1-YA-PCd"/>
+                                        <constraint firstItem="CsP-9e-Ie3" firstAttribute="trailing" secondItem="egz-f1-4uP" secondAttribute="trailingMargin" id="m5a-Xo-RhP"/>
+                                        <constraint firstItem="CsP-9e-Ie3" firstAttribute="leading" secondItem="egz-f1-4uP" secondAttribute="leadingMargin" constant="84" id="qfW-GG-zAO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mainLabel" destination="CsP-9e-Ie3" id="Pa1-Hn-qV9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2Tq-5q-79h" id="iUV-np-ogA"/>
+                            <outlet property="delegate" destination="2Tq-5q-79h" id="CPX-bt-3Ks"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="mainTableView" destination="Li6-ZB-SaH" id="Zvh-7f-2PS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7o-ye-RMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="1018.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rSx-9i-LXj">
