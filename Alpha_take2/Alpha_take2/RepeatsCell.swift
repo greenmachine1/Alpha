@@ -1,5 +1,5 @@
 //
-//  CustomCellTableViewCell.swift
+//  RepeatsCell.swift
 //  Alpha_take2
 //
 //  Created by Cory Green on 3/2/15.
@@ -8,15 +8,11 @@
 
 import UIKit
 
-class CustomCellTableViewCell: UITableViewCell {
+class RepeatsCell: UITableViewCell {
 
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var leftPicture: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

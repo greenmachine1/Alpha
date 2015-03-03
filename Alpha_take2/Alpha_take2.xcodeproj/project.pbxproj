@@ -16,6 +16,9 @@
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
 		321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11801A9EB34B00247E94 /* AddNewTimer.swift */; };
 		32B05A9A1AA5528900E21DA8 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */; };
+		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
+		32B05A9E1AA55CA500E21DA8 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */; };
+		32B05AA11AA5605C00E21DA8 /* ColorSchemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
 		321E11801A9EB34B00247E94 /* AddNewTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTimer.swift; sourceTree = "<group>"; };
 		32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
+		32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
+		32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +97,7 @@
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
 				321E11801A9EB34B00247E94 /* AddNewTimer.swift */,
 				3202FF151AA3BBFA00F7AC0D /* TableTableViewController.swift */,
-				32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */,
+				32B05A9F1AA55D1900E21DA8 /* Custom_Cells */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -99,6 +105,7 @@
 		321E115C1A9EAD2500247E94 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				32B05A9B1AA5599300E21DA8 /* Question_mark.png */,
 				321E115D1A9EAD2500247E94 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -119,6 +126,16 @@
 				321E11731A9EAD2500247E94 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32B05A9F1AA55D1900E21DA8 /* Custom_Cells */ = {
+			isa = PBXGroup;
+			children = (
+				32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */,
+				32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */,
+				32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */,
+			);
+			name = Custom_Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +220,7 @@
 			files = (
 				321E11641A9EAD2500247E94 /* Main.storyboard in Resources */,
 				321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */,
+				32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */,
 				321E11661A9EAD2500247E94 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +241,8 @@
 			files = (
 				3202FF161AA3BBFA00F7AC0D /* TableTableViewController.swift in Sources */,
 				321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */,
+				32B05AA11AA5605C00E21DA8 /* ColorSchemeCell.swift in Sources */,
+				32B05A9E1AA55CA500E21DA8 /* RepeatsCell.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
 				32B05A9A1AA5528900E21DA8 /* CustomCellTableViewCell.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
