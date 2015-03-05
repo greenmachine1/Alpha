@@ -12,7 +12,15 @@ class AddNewTimer: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: "doneButtonOnClick")
+        self.navigationItem.rightBarButtonItem = doneButton
 
+    }
+    
+    func doneButtonOnClick(){
+        
+        println("done button")
     }
 
 }

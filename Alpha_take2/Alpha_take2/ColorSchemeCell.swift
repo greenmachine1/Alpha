@@ -10,6 +10,12 @@ import UIKit
 
 class ColorSchemeCell: UITableViewCell {
 
+    @IBOutlet weak var thirdColorImageView: UIImageView!
+    @IBOutlet weak var secondColorImageView: UIImageView!
+    @IBOutlet weak var firstColorImageView: UIImageView!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var mainImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

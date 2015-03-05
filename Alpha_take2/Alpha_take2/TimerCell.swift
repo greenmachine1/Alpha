@@ -1,19 +1,18 @@
 //
-//  RepeatsCell.swift
+//  TimerCell.swift
 //  Alpha_take2
 //
-//  Created by Cory Green on 3/2/15.
+//  Created by Cory Green on 3/4/15.
 //  Copyright (c) 2015 Cory Green. All rights reserved.
 //
 
 import UIKit
 
-class RepeatsCell: UITableViewCell {
+class TimerCell: UITableViewCell {
 
-    @IBOutlet weak var repeatsToggleSwitch: UISwitch!
-    @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
-    
+    @IBOutlet weak var mainLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
