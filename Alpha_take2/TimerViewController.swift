@@ -14,9 +14,10 @@ import UIKit
     
 }
 
-class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class TimerViewController: UIViewController{
 
-    @IBOutlet weak var mainPickerView: UIPickerView!
+    @IBOutlet weak var mainDatePicker: UIDatePicker!
+    
     var delegate:ReturnTimerInfo?
     
     var hours:Int = 0
@@ -29,6 +30,12 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
+    
+    
+        
+    
+    
+    
     func doneButtonOnClick(){
         
         delegate?.returnTime(hour: hours, minutes: minutes)
@@ -37,44 +44,4 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        if (component == 0){
-            
-            return 13
-            
-        }else{
-            
-            return 60
-        }
-        
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        
-        return "\(row)"
-    }
-
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
-    }
-    
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if(component == 0){
-            
-            hours = row
-            
-        }else{
-            
-            minutes = row
-        }
-    }
 }

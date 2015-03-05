@@ -313,25 +313,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-j2-yub">
-                                <rect key="frame" x="159" y="219" width="282" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="282" id="U1F-pS-Wpf"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="J3m-R0-kqU" id="mCh-Ib-ZYZ"/>
-                                    <outlet property="delegate" destination="J3m-R0-kqU" id="S1S-UN-47Y"/>
-                                </connections>
-                            </pickerView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vcT-bB-FaG">
+                                <rect key="frame" x="0.0" y="180" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="447220827.47674">
+                                    <!--2015-03-05 04:00:27 +0000-->
+                                </date>
+                            </datePicker>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mz2-C4-Bhj">
+                                <rect key="frame" x="211" y="419" width="179" height="29"/>
+                                <segments>
+                                    <segment title="Count Up"/>
+                                    <segment title="Count Down"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.89605546179999995" green="0.9682866309" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="aeS-j2-yub" firstAttribute="centerY" secondItem="UaC-EL-CaU" secondAttribute="centerY" id="23Z-Ve-rHF"/>
-                            <constraint firstItem="aeS-j2-yub" firstAttribute="centerX" secondItem="UaC-EL-CaU" secondAttribute="centerX" id="eKl-F0-LU4"/>
+                            <constraint firstItem="Mz2-C4-Bhj" firstAttribute="top" secondItem="vcT-bB-FaG" secondAttribute="bottom" constant="77" id="I2T-o2-Kmz"/>
+                            <constraint firstItem="vcT-bB-FaG" firstAttribute="leading" secondItem="UaC-EL-CaU" secondAttribute="leading" id="axi-fu-xed"/>
+                            <constraint firstAttribute="trailing" secondItem="vcT-bB-FaG" secondAttribute="trailing" id="ido-JL-gbi"/>
+                            <constraint firstItem="vcT-bB-FaG" firstAttribute="centerX" secondItem="Mz2-C4-Bhj" secondAttribute="centerX" id="kMg-zP-Oy5"/>
+                            <constraint firstItem="vcT-bB-FaG" firstAttribute="top" secondItem="R2U-EQ-NZK" secondAttribute="bottom" constant="160" id="oQT-f4-bqg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainPickerView" destination="aeS-j2-yub" id="Yl9-Hl-Tuh"/>
+                        <outlet property="mainDatePicker" destination="vcT-bB-FaG" id="JFY-yb-5yV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C06-Sg-c4l" userLabel="First Responder" sceneMemberID="firstResponder"/>

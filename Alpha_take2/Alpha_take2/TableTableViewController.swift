@@ -123,7 +123,7 @@ class TableTableViewController: UITableViewController, ReturnTimerInfo, ReturnEv
             
             var timerView = self.storyboard?.instantiateViewControllerWithIdentifier("Time") as TimerViewController
             
-            timerView.delegate = self
+            //timerView.delegate = self
         
             self.navigationController?.pushViewController(timerView, animated: true)
             
