@@ -7,22 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3202FF161AA3BBFA00F7AC0D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202FF151AA3BBFA00F7AC0D /* TableTableViewController.swift */; };
 		321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E115E1A9EAD2500247E94 /* AppDelegate.swift */; };
 		321E11611A9EAD2500247E94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11601A9EAD2500247E94 /* ViewController.swift */; };
 		321E11641A9EAD2500247E94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321E11621A9EAD2500247E94 /* Main.storyboard */; };
 		321E11661A9EAD2500247E94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321E11651A9EAD2500247E94 /* Images.xcassets */; };
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
-		321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11801A9EB34B00247E94 /* AddNewTimer.swift */; };
-		3260DFAE1AA7C88500F3CE24 /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DFAD1AA7C88500F3CE24 /* TimerCell.swift */; };
-		3260DFB01AA7E8E700F3CE24 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DFAF1AA7E8E700F3CE24 /* TimerViewController.swift */; };
-		3260DFB21AA7E98D00F3CE24 /* RepeatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DFB11AA7E98D00F3CE24 /* RepeatsViewController.swift */; };
 		3260DFB41AA7FBCE00F3CE24 /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */; };
-		32B05A9A1AA5528900E21DA8 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */; };
+		326B7A221AABC94E00D4D6EF /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A211AABC94E00D4D6EF /* TimerViewController.swift */; };
+		326B7A241AABCAE600D4D6EF /* TimerOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */; };
+		326B7A261AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
-		32B05A9E1AA55CA500E21DA8 /* RepeatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */; };
-		32B05AA11AA5605C00E21DA8 /* ColorSchemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3202FF151AA3BBFA00F7AC0D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
 		321E11591A9EAD2500247E94 /* Alpha_take2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alpha_take2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E115D1A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E115E1A9EAD2500247E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,15 +41,11 @@
 		321E116E1A9EAD2500247E94 /* Alpha_take2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alpha_take2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
-		321E11801A9EB34B00247E94 /* AddNewTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTimer.swift; sourceTree = "<group>"; };
-		3260DFAD1AA7C88500F3CE24 /* TimerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
-		3260DFAF1AA7E8E700F3CE24 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		3260DFB11AA7E98D00F3CE24 /* RepeatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatsViewController.swift; sourceTree = "<group>"; };
 		3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPallete.swift; path = ../ColorPallete.swift; sourceTree = "<group>"; };
-		32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		326B7A211AABC94E00D4D6EF /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptionsViewController.swift; sourceTree = "<group>"; };
+		326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfEventCellTableViewCell.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
-		32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatsCell.swift; sourceTree = "<group>"; };
-		32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +94,10 @@
 				321E11651A9EAD2500247E94 /* Images.xcassets */,
 				321E11671A9EAD2500247E94 /* LaunchScreen.xib */,
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
-				321E11801A9EB34B00247E94 /* AddNewTimer.swift */,
-				3202FF151AA3BBFA00F7AC0D /* TableTableViewController.swift */,
 				3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */,
-				32B05A9F1AA55D1900E21DA8 /* Custom_Cells */,
+				326B7A211AABC94E00D4D6EF /* TimerViewController.swift */,
+				326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */,
+				326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -141,21 +131,8 @@
 		3260DFB51AA80A5000F3CE24 /* TableViewSelection */ = {
 			isa = PBXGroup;
 			children = (
-				3260DFB11AA7E98D00F3CE24 /* RepeatsViewController.swift */,
-				3260DFAF1AA7E8E700F3CE24 /* TimerViewController.swift */,
 			);
 			name = TableViewSelection;
-			sourceTree = "<group>";
-		};
-		32B05A9F1AA55D1900E21DA8 /* Custom_Cells */ = {
-			isa = PBXGroup;
-			children = (
-				32B05A991AA5528900E21DA8 /* CustomCellTableViewCell.swift */,
-				32B05AA01AA5605C00E21DA8 /* ColorSchemeCell.swift */,
-				32B05A9D1AA55CA500E21DA8 /* RepeatsCell.swift */,
-				3260DFAD1AA7C88500F3CE24 /* TimerCell.swift */,
-			);
-			name = Custom_Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,16 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3202FF161AA3BBFA00F7AC0D /* TableTableViewController.swift in Sources */,
-				3260DFB21AA7E98D00F3CE24 /* RepeatsViewController.swift in Sources */,
-				3260DFB01AA7E8E700F3CE24 /* TimerViewController.swift in Sources */,
-				321E11811A9EB34B00247E94 /* AddNewTimer.swift in Sources */,
-				32B05AA11AA5605C00E21DA8 /* ColorSchemeCell.swift in Sources */,
-				3260DFAE1AA7C88500F3CE24 /* TimerCell.swift in Sources */,
-				32B05A9E1AA55CA500E21DA8 /* RepeatsCell.swift in Sources */,
+				326B7A221AABC94E00D4D6EF /* TimerViewController.swift in Sources */,
 				3260DFB41AA7FBCE00F3CE24 /* ColorPallete.swift in Sources */,
+				326B7A261AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift in Sources */,
+				326B7A241AABCAE600D4D6EF /* TimerOptionsViewController.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
-				32B05A9A1AA5528900E21DA8 /* CustomCellTableViewCell.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

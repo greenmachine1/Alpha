@@ -1,14 +1,14 @@
 //
-//  RepeatsViewController.swift
+//  TimerViewController.swift
 //  Alpha_take2
 //
-//  Created by Cory Green on 3/4/15.
+//  Created by Cory Green on 3/7/15.
 //  Copyright (c) 2015 Cory Green. All rights reserved.
 //
 
 import UIKit
 
-class RepeatsViewController: UIViewController {
+class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,4 +21,7 @@ class RepeatsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+
+
 }

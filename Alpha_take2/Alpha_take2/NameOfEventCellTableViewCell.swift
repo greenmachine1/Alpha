@@ -1,19 +1,15 @@
 //
-//  RepeatsCell.swift
+//  NameOfEventCellTableViewCell.swift
 //  Alpha_take2
 //
-//  Created by Cory Green on 3/2/15.
+//  Created by Cory Green on 3/7/15.
 //  Copyright (c) 2015 Cory Green. All rights reserved.
 //
 
 import UIKit
 
-class RepeatsCell: UITableViewCell {
+class NameOfEventCellTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var repeatsToggleSwitch: UISwitch!
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var mainImage: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
