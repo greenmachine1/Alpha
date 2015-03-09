@@ -1,5 +1,5 @@
 //
-//  NameOfEventCellTableViewCell.swift
+//  BlankTableViewCell.swift
 //  Alpha_take2
 //
 //  Created by Cory Green on 3/7/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameOfEventCellTableViewCell: UITableViewCell {
+class BlankTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

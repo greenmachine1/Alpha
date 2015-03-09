@@ -12,22 +12,13 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        var addNewTimerButton = UIBarButtonItem(title: "New Timer", style: UIBarButtonItemStyle.Plain, target: self, action: "addTimerButtonOnClick")
-        self.navigationItem.rightBarButtonItem = addNewTimerButton
+        
+        
         
     }
-    
-    
-    
-    
-    // adding a new timer //
-    func addTimerButtonOnClick(){
-        
-        var addNewTimerController = self.storyboard?.instantiateViewControllerWithIdentifier("Timer") as TimerViewController
-        
-        self.navigationController?.pushViewController(addNewTimerController, animated: true)
-    }
+
     
 }
 

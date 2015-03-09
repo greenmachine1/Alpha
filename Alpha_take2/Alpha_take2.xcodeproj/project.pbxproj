@@ -13,11 +13,8 @@
 		321E11661A9EAD2500247E94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321E11651A9EAD2500247E94 /* Images.xcassets */; };
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
-		3260DFB41AA7FBCE00F3CE24 /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */; };
-		326B7A221AABC94E00D4D6EF /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A211AABC94E00D4D6EF /* TimerViewController.swift */; };
-		326B7A241AABCAE600D4D6EF /* TimerOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */; };
-		326B7A261AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
+		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +38,8 @@
 		321E116E1A9EAD2500247E94 /* Alpha_take2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alpha_take2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
-		3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPallete.swift; path = ../ColorPallete.swift; sourceTree = "<group>"; };
-		326B7A211AABC94E00D4D6EF /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptionsViewController.swift; sourceTree = "<group>"; };
-		326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfEventCellTableViewCell.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
+		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +88,6 @@
 				321E11651A9EAD2500247E94 /* Images.xcassets */,
 				321E11671A9EAD2500247E94 /* LaunchScreen.xib */,
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
-				3260DFB31AA7FBCE00F3CE24 /* ColorPallete.swift */,
-				326B7A211AABC94E00D4D6EF /* TimerViewController.swift */,
-				326B7A231AABCAE600D4D6EF /* TimerOptionsViewController.swift */,
-				326B7A251AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -107,6 +97,7 @@
 			children = (
 				32B05A9B1AA5599300E21DA8 /* Question_mark.png */,
 				321E115D1A9EAD2500247E94 /* Info.plist */,
+				32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -236,10 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326B7A221AABC94E00D4D6EF /* TimerViewController.swift in Sources */,
-				3260DFB41AA7FBCE00F3CE24 /* ColorPallete.swift in Sources */,
-				326B7A261AABCDE300D4D6EF /* NameOfEventCellTableViewCell.swift in Sources */,
-				326B7A241AABCAE600D4D6EF /* TimerOptionsViewController.swift in Sources */,
+				32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
 			);
