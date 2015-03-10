@@ -8,15 +8,50 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, ReturnInformationFromSideBarDelegate{
+    
+    var sidebar:SideBar = SideBar()
+    var toggleSideBar:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        var addNewTimerButton:UIBarButtonItem = UIBarButtonItem(title: "Add New Timer", style: UIBarButtonItemStyle.Done, target: self, action: "addNewTimer")
+        
+        self.navigationItem.leftBarButtonItem = addNewTimerButton
         
         
+        // creating the sidebar //
+        sidebar = SideBar(view: self.view, navBarHeight: self.navigationController!.navigationBar.frame.height)
         
+        sidebar.delegate = self
         
+    }
+    
+    
+    
+    
+    // opens and closes the side bar for setting timer options //
+    func addNewTimer(){
+        
+        // make the side bar come out!
+        if(toggleSideBar == false){
+            
+            sidebar.openSideBar()
+            toggleSideBar = true
+            self.navigationItem.leftBarButtonItem?.title = "Done"
+            
+        }else if(toggleSideBar == true){
+            
+            sidebar.closeSideBar()
+            toggleSideBar = false
+            self.navigationItem.leftBarButtonItem?.title = "Add New Timer"
+            
+        }
+    }
+    
+    func returnSelected(row: Int) {
+        println("selected row \(row)")
     }
 
     

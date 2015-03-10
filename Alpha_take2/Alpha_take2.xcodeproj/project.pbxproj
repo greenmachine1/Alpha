@@ -13,8 +13,10 @@
 		321E11661A9EAD2500247E94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321E11651A9EAD2500247E94 /* Images.xcassets */; };
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
+		326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF56C1AAE503D00BC2D0D /* SideBar.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
 		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
+		32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,10 @@
 		321E116E1A9EAD2500247E94 /* Alpha_take2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alpha_take2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
+		326BF56C1AAE503D00BC2D0D /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
 		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
+		32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				321E11651A9EAD2500247E94 /* Images.xcassets */,
 				321E11671A9EAD2500247E94 /* LaunchScreen.xib */,
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
+				32EA21581AAE676D002E44B8 /* SideBar */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -124,6 +129,15 @@
 			children = (
 			);
 			name = TableViewSelection;
+			sourceTree = "<group>";
+		};
+		32EA21581AAE676D002E44B8 /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				326BF56C1AAE503D00BC2D0D /* SideBar.swift */,
+				32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */,
+			);
+			name = SideBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */,
 				32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
+				326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
