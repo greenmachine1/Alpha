@@ -30,7 +30,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     
     init(view:UIView, navBarHeight:CGFloat) {
         super.init()
-        
+
         _view = view
         heightOfNavigationBar = navBarHeight
         
@@ -44,14 +44,15 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         sideBarTableView.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         sideBarTableView.tableView.backgroundColor = UIColor.clearColor()
+        
         sideBarTableView.tableView.scrollsToTop = false
         sideBarTableView.tableView.contentInset = UIEdgeInsetsMake(heightOfNavigationBar, 0.0, 0.0, 0.0)
         
         
         sideBarView.backgroundColor = UIColor.clearColor()
-        let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-        blurView.frame = sideBarView.bounds
-        sideBarView.addSubview(blurView)
+        //let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        //blurView.frame = sideBarView.bounds
+        //sideBarView.addSubview(blurView)
 
         
         sideBarView.addSubview(sideBarTableView.tableView)

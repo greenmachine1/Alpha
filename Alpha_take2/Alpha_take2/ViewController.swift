@@ -15,6 +15,7 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     
         var addNewTimerButton:UIBarButtonItem = UIBarButtonItem(title: "Add New Timer", style: UIBarButtonItemStyle.Done, target: self, action: "addNewTimer")
         
