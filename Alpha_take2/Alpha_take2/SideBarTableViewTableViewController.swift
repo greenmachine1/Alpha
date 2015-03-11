@@ -42,15 +42,15 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         var blankCell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
         blankCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         blankCell!.backgroundColor = UIColor.clearColor()
-        blankCell?.userInteractionEnabled = false
+        blankCell!.userInteractionEnabled = false
         
-        // creating the blurview //
-        let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
-        
+
         
         
         // first cell -- enter name of event cell -- //
         if(indexPath.row == 0){
+            
+            
             
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
         
@@ -59,26 +59,22 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.layer.cornerRadius = CORNER_RADIUS
             cell!.clipsToBounds = true
             
+            
+            
 
             // creating the left icon image //
             leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
             leftImage.layer.cornerRadius = CORNER_RADIUS
             leftImage.clipsToBounds = true
             
-            
-            
-            
-            
+        
             
             // creating the textfield entry point //
             var userInputField:UITextField = UITextField(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0),
-                (cell!.frame.origin.y + cell!.frame.height / 4) + 20.0,
-                200.0,
-                25.0))
+                (cell!.frame.origin.y + cell!.frame.height / 4) + 20.0, 200.0, 25.0))
             userInputField.backgroundColor = UIColor.whiteColor()
             userInputField.borderStyle = UITextBorderStyle.RoundedRect
             userInputField.layer.borderColor = ColorPallete.sharedInstance.darkGreenColor.CGColor
-            //userInputField.layer.borderWidth = 1.0
             userInputField.placeholder = "Enter event name here"
             userInputField.clearsOnBeginEditing = true
             
@@ -90,12 +86,13 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 20.0, userInputField.frame.width, 20.0))
             nameOfEventLabel.textColor = ColorPallete.sharedInstance.whiteColor
             nameOfEventLabel.text = "Event name"
+
             
             
             cell?.addSubview(leftImage)
             cell?.addSubview(userInputField)
             cell?.addSubview(nameOfEventLabel)
-            cell?.addSubview(blurView)
+            
 
             return cell!
             
