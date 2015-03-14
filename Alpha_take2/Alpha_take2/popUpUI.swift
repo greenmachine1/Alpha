@@ -8,14 +8,17 @@
 
 import UIKit
 
-class popUpUI: UIView {
+class popUpUI: UIView, ReturnInfoDelegate {
     
-    var callingView:UIView?
-
-    func redrawView(){
+    var _callingView:UIView?
+    var _rowSelected:Int?
+    
+    func redrawView(callingView:UIView, rowSelected:Int){
         
-        println("calling view \(callingView!.frame)")
-        self.frame = CGRectMake(20.0, callingView!.frame.height, callingView!.frame.width - 40.0, callingView!.frame.height - 100.0)
+        _callingView = callingView
+        _rowSelected = rowSelected
+        
+        self.frame = CGRectMake(20.0, callingView.frame.height, callingView.frame.width - 40.0, callingView.frame.height - 100.0)
         self.backgroundColor = UIColor.clearColor()
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
@@ -24,18 +27,36 @@ class popUpUI: UIView {
         blurView.frame = self.bounds
         
         
-        var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        doneButton.frame = CGRectMake(self.frame.origin.x, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
-        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
-        doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
-        doneButton.layer.cornerRadius = 10.0
-        doneButton.clipsToBounds = true
-        
+        // adding things to the layer //
         self.addSubview(blurView)
-        self.addSubview(doneButton)
-        callingView!.addSubview(self)
+
+        self.displayContent(_rowSelected!)
+        
+        callingView.addSubview(self)
+        
+    }
+    
+    // displaying the content based on which row selected //
+    func displayContent(row:Int){
+        
+        
+        // for the time picker view //
+        //if(row == 2){
+        
+            var timerPicker:TimePickerUIView = TimePickerUIView()
+            timerPicker.delegate = self
+            timerPicker.drawPickerView(self)
+        
+            self.addSubview(timerPicker)
+        //}
+    }
+    
+    
+    
+    // done button click from next UIView() //
+    func doneButtonClick() {
+        
+        self.moveViewDown()
         
     }
     
@@ -44,7 +65,7 @@ class popUpUI: UIView {
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             
-            self.frame = CGRectMake(20.0, 80.0, self.callingView!.frame.width - 40.0, self.callingView!.frame.height - 100.0)
+            self.frame = CGRectMake(20.0, 80.0, self._callingView!.frame.width - 40.0, self._callingView!.frame.height - 100.0)
             
         })
     }
@@ -53,16 +74,11 @@ class popUpUI: UIView {
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             
-            self.frame = CGRectMake(20.0, self.callingView!.frame.height, self.callingView!.frame.width - 40.0, self.callingView!.frame.height - 100.0)
+            self.frame = CGRectMake(20.0, self._callingView!.frame.height, self._callingView!.frame.width - 40.0, self._callingView!.frame.height - 100.0)
             
         })
     }
-    
-    
-    func doneButtonOnClick(){
-        
-        self.moveViewDown()
-    }
+
     
 
     

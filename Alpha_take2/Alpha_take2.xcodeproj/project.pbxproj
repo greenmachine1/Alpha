@@ -14,9 +14,9 @@
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
 		322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540441AB3D0D900062BD0 /* popUpUI.swift */; };
+		322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540481AB410D300062BD0 /* TimePickerUIView.swift */; };
 		326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF56C1AAE503D00BC2D0D /* SideBar.swift */; };
 		32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */; };
-		32880D081AB24C1F001BAC12 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32880D071AB24C1F001BAC12 /* PopUpView.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
 		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
 		32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */; };
@@ -44,9 +44,9 @@
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
 		322540441AB3D0D900062BD0 /* popUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpUI.swift; sourceTree = "<group>"; };
+		322540481AB410D300062BD0 /* TimePickerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerUIView.swift; sourceTree = "<group>"; };
 		326BF56C1AAE503D00BC2D0D /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
-		32880D071AB24C1F001BAC12 /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
 		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
 		32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewTableViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
 				32EA21581AAE676D002E44B8 /* SideBar */,
 				32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */,
-				32880D071AB24C1F001BAC12 /* PopUpView.swift */,
 				322540441AB3D0D900062BD0 /* popUpUI.swift */,
+				322540481AB410D300062BD0 /* TimePickerUIView.swift */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -251,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32880D081AB24C1F001BAC12 /* PopUpView.swift in Sources */,
 				32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */,
 				322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */,
 				32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */,
@@ -259,6 +258,7 @@
 				32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */,
 				326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
+				322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

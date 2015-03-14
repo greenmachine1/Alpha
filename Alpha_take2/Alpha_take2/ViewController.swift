@@ -54,8 +54,7 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         if(row != 0){
 
             var newPopUpView:popUpUI = popUpUI()
-            newPopUpView.callingView = self.view
-            newPopUpView.redrawView()
+            newPopUpView.redrawView(self.view, rowSelected:row)
             newPopUpView.moveViewUp()
             
         }
