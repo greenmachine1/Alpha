@@ -46,6 +46,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         sideBarTableView.tableView.backgroundColor = UIColor.clearColor()
         
         sideBarTableView.tableView.scrollsToTop = false
+        sideBarTableView.tableView.scrollEnabled = false
         sideBarTableView.tableView.contentInset = UIEdgeInsetsMake(heightOfNavigationBar, 0.0, 0.0, 0.0)
         sideBarView.backgroundColor = UIColor.clearColor()
         
@@ -61,8 +62,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     // moving out the sidebar to make visible //
     func openSideBar(){
         
-        UIView.animateWithDuration(
-            0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.sideBarView.frame = CGRectMake(0, self._view.frame.origin.y + self.heightOfNavigationBar, self.widthOfSideBar, self._view.frame.height)
         })
         
@@ -74,7 +74,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     // moving the sidebar back in //
     func closeSideBar(){
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.sideBarView.frame = CGRectMake(self._view.frame.origin.x - self.widthOfSideBar, self._view.frame.origin.y + self.heightOfNavigationBar, self.widthOfSideBar, self._view.frame.height)
         })
         

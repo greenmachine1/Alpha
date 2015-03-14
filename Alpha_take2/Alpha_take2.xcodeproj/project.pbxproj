@@ -13,8 +13,10 @@
 		321E11661A9EAD2500247E94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321E11651A9EAD2500247E94 /* Images.xcassets */; };
 		321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321E11671A9EAD2500247E94 /* LaunchScreen.xib */; };
 		321E11751A9EAD2500247E94 /* Alpha_take2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */; };
+		322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540441AB3D0D900062BD0 /* popUpUI.swift */; };
 		326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF56C1AAE503D00BC2D0D /* SideBar.swift */; };
 		32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */; };
+		32880D081AB24C1F001BAC12 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32880D071AB24C1F001BAC12 /* PopUpView.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
 		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
 		32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */; };
@@ -41,8 +43,10 @@
 		321E116E1A9EAD2500247E94 /* Alpha_take2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alpha_take2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E11731A9EAD2500247E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321E11741A9EAD2500247E94 /* Alpha_take2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_take2Tests.swift; sourceTree = "<group>"; };
+		322540441AB3D0D900062BD0 /* popUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpUI.swift; sourceTree = "<group>"; };
 		326BF56C1AAE503D00BC2D0D /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
+		32880D071AB24C1F001BAC12 /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
 		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
 		32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewTableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
 				32EA21581AAE676D002E44B8 /* SideBar */,
 				32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */,
+				32880D071AB24C1F001BAC12 /* PopUpView.swift */,
+				322540441AB3D0D900062BD0 /* popUpUI.swift */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 				TargetAttributes = {
 					321E11581A9EAD2500247E94 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = YM794S99T5;
 					};
 					321E116D1A9EAD2500247E94 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -244,7 +251,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32880D081AB24C1F001BAC12 /* PopUpView.swift in Sources */,
 				32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */,
+				322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */,
 				32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
 				32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */,
@@ -374,7 +383,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Alpha_take2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -384,7 +395,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Alpha_take2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -19,6 +19,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     var NORMAL_SIZE_OF_CELL:CGFloat = 80.0
     var BLANK_SIZE_OF_CELL:CGFloat = 10.0
     var CORNER_RADIUS:CGFloat = 10.0
+    var mainView:UIView = UIView()
     
     var delegate:ReturnInformationFromSideBar?
 
@@ -58,6 +59,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
             cell!.layer.cornerRadius = CORNER_RADIUS
             cell!.clipsToBounds = true
+            cell!.selectionStyle = .None
             
             
             
@@ -86,6 +88,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 20.0, userInputField.frame.width, 20.0))
             nameOfEventLabel.textColor = ColorPallete.sharedInstance.whiteColor
             nameOfEventLabel.text = "Event name"
+            nameOfEventLabel.textAlignment = .Center
 
             
             
@@ -115,8 +118,24 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
-            cell?.addSubview(leftImage)
+            
+            // the main timer label -- will get populated with the users selected time info //
+            var timerInfoLabel:UILabel = UILabel(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 200.0, 40.0))
+            timerInfoLabel.text = "00:00:00"
+            timerInfoLabel.font = UIFont(name: "Courier", size: 40.0)
+            timerInfoLabel.textColor = ColorPallete.sharedInstance.whiteColor
 
+            
+            // set timer label //
+            var timerLabel:UILabel = UILabel(frame: CGRectMake(timerInfoLabel.frame.origin.x, timerInfoLabel.frame.origin.y - 20.0, timerInfoLabel.frame.width, 20.0))
+            timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            timerLabel.text = "Set Timer"
+            timerLabel.textAlignment = .Center
+            
+            
+            cell?.addSubview(leftImage)
+            cell?.addSubview(timerInfoLabel)
+            cell?.addSubview(timerLabel)
             
             return cell!
             
@@ -141,8 +160,15 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
-            cell?.addSubview(leftImage)
+            var repeatsSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Yes", "No"])
+            repeatsSegmentControl.frame = CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 200.0, 20.0)
+            repeatsSegmentControl.selectedSegmentIndex = 0
+            
+            
+            
 
+            cell?.addSubview(leftImage)
+            cell?.addSubview(repeatsSegmentControl)
             
             return cell!
             
@@ -209,6 +235,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         delegate?.returnOptionSelected(indexPath.row)
+        
+
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -236,14 +264,14 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         }
         
     }
-    
+        
     
     // dismissing the keyboard //
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+
 
     
 

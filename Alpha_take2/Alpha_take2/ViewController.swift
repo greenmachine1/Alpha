@@ -8,14 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, ReturnInformationFromSideBarDelegate{
+class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UIPopoverPresentationControllerDelegate{
     
     var sidebar:SideBar = SideBar()
     var toggleSideBar:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
         var addNewTimerButton:UIBarButtonItem = UIBarButtonItem(title: "Add New Timer", style: UIBarButtonItemStyle.Done, target: self, action: "addNewTimer")
         
@@ -26,7 +25,6 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate{
         sidebar = SideBar(view: self.view, navBarHeight: self.navigationController!.navigationBar.frame.height)
         
         sidebar.delegate = self
-        
     }
     
     
@@ -52,9 +50,19 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate{
     }
     
     func returnSelected(row: Int) {
-        println("selected row \(row)")
-    }
 
+        if(row != 0){
+
+            var newPopUpView:popUpUI = popUpUI()
+            newPopUpView.callingView = self.view
+            newPopUpView.redrawView()
+            newPopUpView.moveViewUp()
+            
+        }
+    }
     
+
+
 }
+
 
