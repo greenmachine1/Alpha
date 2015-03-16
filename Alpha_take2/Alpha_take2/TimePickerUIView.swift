@@ -34,8 +34,15 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         
+        
+        
+        
+        
         // timer picker view //
-        timerPickerView.frame = CGRectMake(self.frame.origin.x + 20.0, timerLabel.frame.origin.y + timerLabel.frame.height, self.frame.width - 40.0, 162.0)
+        //timerPickerView.center = CGPointMake(self.frame.width / 2, self.frame.height / 2)
+        timerPickerView.frame = CGRectMake((self.frame.width / 2) - (timerPickerView.frame.width / 2) + 40.0, (self.frame.height / 2) - (timerPickerView.frame.height / 2), self.frame.width - 40.0, 162.0)
+        
+        //timerPickerView.frame = CGRectMake(self.frame.origin.x + 20.0, timerLabel.frame.origin.y + (timerLabel.frame.height + 20.0), self.frame.width - 40.0, 162.0)
         
         timerPickerView.delegate = self
         timerPickerView.backgroundColor = ColorPallete.sharedInstance.greenColor
@@ -43,6 +50,20 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         
+        var hoursLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        hoursLabel.text = "Hrs"
+        hoursLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
+        hoursLabel.textAlignment = .Center
+        
+        var minutesLabel:UILabel = UILabel(frame: CGRectMake(hoursLabel.frame.origin.x + hoursLabel.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        minutesLabel.text = "Min"
+        minutesLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
+        minutesLabel.textAlignment = .Center
+        
+        var secondsLabel:UILabel = UILabel(frame: CGRectMake(minutesLabel.frame.origin.x + minutesLabel.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        secondsLabel.text = "Sec"
+        secondsLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
+        secondsLabel.textAlignment = .Center
         
         
         
@@ -57,6 +78,10 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         self.addSubview(timerLabel)
         self.addSubview(timerPickerView)
+        self.addSubview(hoursLabel)
+        self.addSubview(minutesLabel)
+        self.addSubview(secondsLabel)
+        
         self.addSubview(doneButton)
     }
     

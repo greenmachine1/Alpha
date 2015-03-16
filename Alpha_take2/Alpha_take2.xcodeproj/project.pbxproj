@@ -19,6 +19,9 @@
 		32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
 		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
+		32DB18761AB652C6003E32D2 /* RepeatsTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB18751AB652C6003E32D2 /* RepeatsTimerView.swift */; };
+		32DB18781AB6546F003E32D2 /* SetColorSchemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB18771AB6546F003E32D2 /* SetColorSchemeView.swift */; };
+		32DB187A1AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB18791AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift */; };
 		32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
 		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
+		32DB18751AB652C6003E32D2 /* RepeatsTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatsTimerView.swift; sourceTree = "<group>"; };
+		32DB18771AB6546F003E32D2 /* SetColorSchemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetColorSchemeView.swift; sourceTree = "<group>"; };
+		32DB18791AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInBetweenRepeatsView.swift; sourceTree = "<group>"; };
 		32EA21591AAE6786002E44B8 /* SideBarTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +107,7 @@
 				32EA21581AAE676D002E44B8 /* SideBar */,
 				32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */,
 				322540441AB3D0D900062BD0 /* popUpUI.swift */,
-				322540481AB410D300062BD0 /* TimePickerUIView.swift */,
+				32DB18741AB652A1003E32D2 /* SubViews */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -138,6 +144,17 @@
 			children = (
 			);
 			name = TableViewSelection;
+			sourceTree = "<group>";
+		};
+		32DB18741AB652A1003E32D2 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				322540481AB410D300062BD0 /* TimePickerUIView.swift */,
+				32DB18751AB652C6003E32D2 /* RepeatsTimerView.swift */,
+				32DB18771AB6546F003E32D2 /* SetColorSchemeView.swift */,
+				32DB18791AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift */,
+			);
+			name = SubViews;
 			sourceTree = "<group>";
 		};
 		32EA21581AAE676D002E44B8 /* SideBar */ = {
@@ -253,11 +270,14 @@
 			files = (
 				32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */,
 				322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */,
+				32DB18781AB6546F003E32D2 /* SetColorSchemeView.swift in Sources */,
 				32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */,
 				321E11611A9EAD2500247E94 /* ViewController.swift in Sources */,
+				32DB18761AB652C6003E32D2 /* RepeatsTimerView.swift in Sources */,
 				32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */,
 				326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */,
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
+				32DB187A1AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift in Sources */,
 				322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class popUpUI: UIView, ReturnInfoDelegate {
+class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, ReturnInfoFromColorSchemeViewDelegate, ReturnTimeInBetweenRepeatsInfoDelegate {
     
     var _callingView:UIView?
     var _rowSelected:Int?
@@ -41,14 +41,35 @@ class popUpUI: UIView, ReturnInfoDelegate {
         
         
         // for the time picker view //
-        //if(row == 2){
+        if(row == 2){
         
             var timerPicker:TimePickerUIView = TimePickerUIView()
             timerPicker.delegate = self
             timerPicker.drawPickerView(self)
         
             self.addSubview(timerPicker)
-        //}
+        }else if(row == 4){
+            
+            var repeatsView:RepeatsTimerView = RepeatsTimerView()
+            repeatsView.drawRepeatsView(self)
+            repeatsView.delegate = self
+            
+            self.addSubview(repeatsView)
+        }else if(row == 6){
+            
+            var timeInBetweenView:TimeInBetweenRepeatsView = TimeInBetweenRepeatsView()
+            timeInBetweenView.drawTimeInBetweenRepeats(self)
+            timeInBetweenView.delegate = self
+            
+            self.addSubview(timeInBetweenView)
+        }else if(row == 8){
+            
+            var colorSchemeView:SetColorSchemeView = SetColorSchemeView()
+            colorSchemeView.drawColorSchemeView(self)
+            colorSchemeView.delegate = self
+            
+            self.addSubview(colorSchemeView)
+        }
     }
     
     
@@ -57,8 +78,32 @@ class popUpUI: UIView, ReturnInfoDelegate {
     func doneButtonClick() {
         
         self.moveViewDown()
+
+    }
+    
+    
+    // done button from the Repeats Timer view //
+    func doneButtonPressedFromRepeatsView() {
+        
+        self.moveViewDown()
         
     }
+    
+    // done button from the color scheme view //
+    func returnDoneButtonPressedFromColorScheme() {
+        
+        self.moveViewDown()
+    }
+    
+    
+    // done button from time in between view //
+    func doneButtonPressedInTimeInBetweenRepeatsView() {
+        
+        self.moveViewDown()
+        
+    }
+    
+    
     
     
     func moveViewUp(){
