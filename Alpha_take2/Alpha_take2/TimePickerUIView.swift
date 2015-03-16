@@ -11,6 +11,7 @@ import UIKit
 @objc protocol ReturnInfoDelegate{
     
     func doneButtonClick()
+    func returnTimerWithInfo(totalTimeInseconds:Int, countUpOrDown:Bool)
     
 }
 
@@ -20,6 +21,14 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var timerPickerView:UIPickerView = UIPickerView()
     
     var delegate:ReturnInfoDelegate?
+    
+    var hours:Int = 0
+    var minutes:Int = 0
+    var seconds:Int = 0
+    
+    // the count up or count down bool is default set to true for being //
+    // count down //
+    var countUpOrCountDownBool:Bool = true
     
     func drawPickerView(callingView:UIView){
         
@@ -33,23 +42,31 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         timerLabel.textAlignment = .Center
         
         
+        // done button //
+        var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        doneButton.frame = CGRectMake(self.frame.origin.x + 20.0, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
+        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
+        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
+        doneButton.layer.cornerRadius = 10.0
+        doneButton.clipsToBounds = true
+        
+        
         
         
         
         
         
         // timer picker view //
-        //timerPickerView.center = CGPointMake(self.frame.width / 2, self.frame.height / 2)
         timerPickerView.frame = CGRectMake((self.frame.width / 2) - (timerPickerView.frame.width / 2) + 40.0, (self.frame.height / 2) - (timerPickerView.frame.height / 2), self.frame.width - 40.0, 162.0)
-        
-        //timerPickerView.frame = CGRectMake(self.frame.origin.x + 20.0, timerLabel.frame.origin.y + (timerLabel.frame.height + 20.0), self.frame.width - 40.0, 162.0)
-        
+
         timerPickerView.delegate = self
         timerPickerView.backgroundColor = ColorPallete.sharedInstance.greenColor
         timerPickerView.layer.cornerRadius = 10.0
         
         
-        
+        // timer labels //
         var hoursLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
         hoursLabel.text = "Hrs"
         hoursLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
@@ -67,33 +84,44 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         
-        var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        doneButton.frame = CGRectMake(self.frame.origin.x + 20.0, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
-        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
-        doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
-        doneButton.layer.cornerRadius = 10.0
-        doneButton.clipsToBounds = true
         
+        
+        
+        
+        // default segment control and count up or down segment controls //
+        // their position will be dependant on the space between the //
+        // time picker view and the done button //
+        var spaceInBetweenPickerViewAndDoneButton = doneButton.frame.origin.y - (timerPickerView.frame.origin.y + timerPickerView.frame.height)
+        
+        var spaceForEach = (spaceInBetweenPickerViewAndDoneButton / 3) - 15.0
+
+        
+        var defaultTimesSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Default Times", "Custom Times"])
+        defaultTimesSegmentControl.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y + timerPickerView.frame.height + spaceForEach, timerPickerView.frame.width, 20.0)
+        defaultTimesSegmentControl.selectedSegmentIndex = 1
+        defaultTimesSegmentControl.addTarget(self, action: "defaultTimeChange:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        
+        
+        var countUpOrDownSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Count up", "Count down"])
+        countUpOrDownSegmentControl.frame = CGRectMake(defaultTimesSegmentControl.frame.origin.x, defaultTimesSegmentControl.frame.origin.y + defaultTimesSegmentControl.frame.height + spaceForEach, defaultTimesSegmentControl.frame.width, 20.0)
+        countUpOrDownSegmentControl.selectedSegmentIndex = 1
+        countUpOrDownSegmentControl.addTarget(self, action: "countUpValueChange:", forControlEvents: UIControlEvents.ValueChanged)
+        
+
         self.addSubview(timerLabel)
         self.addSubview(timerPickerView)
         self.addSubview(hoursLabel)
         self.addSubview(minutesLabel)
         self.addSubview(secondsLabel)
+        self.addSubview(defaultTimesSegmentControl)
+        self.addSubview(countUpOrDownSegmentControl)
         
         self.addSubview(doneButton)
     }
     
     
-    // notifys the main view that the donebutton has been clicked //
-    func doneButtonOnClick(){
-        
-        delegate?.doneButtonClick()
-        
-    }
-    
-    
+
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         
@@ -117,9 +145,52 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        println("selected - \(row) and \(component)")
+        if(component == 0){
+            
+            hours = row
+            
+        }else if(component == 1){
+            
+            minutes = row
+            
+        }else if(component == 2){
+            
+            seconds = row
+            
+        }
         
     }
+    
+    func defaultTimeChange(sender:AnyObject){
+        
+        println("sender \(sender.selectedSegmentIndex)")
+        
+    }
+    
+    
+    func countUpValueChange(sender:AnyObject){
+        
+        if(sender.selectedSegmentIndex == 0){
+            countUpOrCountDownBool = false
+        }else{
+            countUpOrCountDownBool = true
+        }
+        
+    }
+    
+    // notifys the main view that the donebutton has been clicked //
+    func doneButtonOnClick(){
+        
+        var tempTotalSecondsToSendBack = seconds + (minutes * 60) + (hours * 60 * 60)
+        
+        delegate?.doneButtonClick()
+        
+        // send back the info //
+        delegate?.returnTimerWithInfo(tempTotalSecondsToSendBack, countUpOrDown: countUpOrCountDownBool)
+        
+    }
+    
+    
     
     
 }

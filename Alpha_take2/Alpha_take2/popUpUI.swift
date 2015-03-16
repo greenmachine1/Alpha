@@ -74,12 +74,32 @@ class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, Retu
     
     
     
+    
+    
+    // ******** timer picker section ******** //
+    
+    
     // done button click from next UIView() //
     func doneButtonClick() {
         
         self.moveViewDown()
 
     }
+    
+    // what is returned from the TimePickerUIView //
+    func returnTimerWithInfo(totalTimeInseconds: Int, countUpOrDown: Bool) {
+        
+        println("total time in seconds \(totalTimeInseconds) and count up or down \(countUpOrDown)")
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    // ******** repeats timer section ******** //
     
     
     // done button from the Repeats Timer view //
@@ -89,11 +109,23 @@ class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, Retu
         
     }
     
+    
+    
+    // ******* Color scheme section ******** //
+    
+    
     // done button from the color scheme view //
     func returnDoneButtonPressedFromColorScheme() {
         
         self.moveViewDown()
     }
+    
+    
+    
+    
+    
+    
+    // ******* time in between repeats section ******** //
     
     
     // done button from time in between view //
