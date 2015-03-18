@@ -26,9 +26,26 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var minutes:Int = 0
     var seconds:Int = 0
     
+    var defaultTimerOptions = ["Zero","10 Seconds","30 Seconds","1 Minute","5 Minutes","10 Minutes","15 Minutes", "20 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours", "5 Hours", "8 Hours", "12 Hours", "24 Hours"]
+    
+    // literal meaning in seconds of the default settings //
+    var literalMeaningOfDefaultTimerOptions = [0,10,30,60,300,600,900,1200,1800,2700,3600,7200,18000,28800,43200, 86400]
+    
+    var finalValueForDefault:Int = 0
+    
+    var defaultOrCustomTimerToggleBool:Bool = true
+    
     // the count up or count down bool is default set to true for being //
     // count down //
     var countUpOrCountDownBool:Bool = true
+    
+    var hoursLabel:UILabel?
+    var minutesLabel:UILabel?
+    var secondsLabel:UILabel?
+    
+    
+    
+    
     
     func drawPickerView(callingView:UIView){
         
@@ -38,7 +55,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
         timerLabel.text = "Set Timer"
-        timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
+        timerLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
         timerLabel.textAlignment = .Center
         
         
@@ -62,27 +79,39 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         timerPickerView.frame = CGRectMake((self.frame.width / 2) - (timerPickerView.frame.width / 2) + 40.0, (self.frame.height / 2) - (timerPickerView.frame.height / 2), self.frame.width - 40.0, 162.0)
 
         timerPickerView.delegate = self
-        timerPickerView.backgroundColor = ColorPallete.sharedInstance.greenColor
+        timerPickerView.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
         timerPickerView.layer.cornerRadius = 10.0
         
         
         // timer labels //
-        var hoursLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
-        hoursLabel.text = "Hrs"
-        hoursLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
-        hoursLabel.textAlignment = .Center
+        hoursLabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        hoursLabel!.text = "Hrs"
+        hoursLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        hoursLabel!.textAlignment = .Center
         
-        var minutesLabel:UILabel = UILabel(frame: CGRectMake(hoursLabel.frame.origin.x + hoursLabel.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
-        minutesLabel.text = "Min"
-        minutesLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
-        minutesLabel.textAlignment = .Center
+        minutesLabel = UILabel(frame: CGRectMake(hoursLabel!.frame.origin.x + hoursLabel!.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        minutesLabel!.text = "Min"
+        minutesLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        minutesLabel!.textAlignment = .Center
         
-        var secondsLabel:UILabel = UILabel(frame: CGRectMake(minutesLabel.frame.origin.x + minutesLabel.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
-        secondsLabel.text = "Sec"
-        secondsLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
-        secondsLabel.textAlignment = .Center
+        secondsLabel = UILabel(frame: CGRectMake(minutesLabel!.frame.origin.x + minutesLabel!.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
+        secondsLabel!.text = "Sec"
+        secondsLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        secondsLabel!.textAlignment = .Center
         
         
+        
+        
+        
+        // hidding the hours and seconds labels because the default //
+        // settings for the picker view are default times and therfor //
+        // should only show the middle label //
+        hoursLabel?.hidden = true
+        secondsLabel?.hidden = true
+        
+        
+        minutesLabel!.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width, 20.0)
+        minutesLabel!.text = "Default Times"
         
         
         
@@ -94,26 +123,34 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         var spaceInBetweenPickerViewAndDoneButton = doneButton.frame.origin.y - (timerPickerView.frame.origin.y + timerPickerView.frame.height)
         
         var spaceForEach = (spaceInBetweenPickerViewAndDoneButton / 3) - 15.0
-
+        var segmentControlheight:CGFloat = 20.0
         
+        if(spaceForEach > 20.0){
+            segmentControlheight = 30.0
+        }
+
         var defaultTimesSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Default Times", "Custom Times"])
-        defaultTimesSegmentControl.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y + timerPickerView.frame.height + spaceForEach, timerPickerView.frame.width, 20.0)
-        defaultTimesSegmentControl.selectedSegmentIndex = 1
+        defaultTimesSegmentControl.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y + timerPickerView.frame.height + spaceForEach, timerPickerView.frame.width, segmentControlheight)
+        defaultTimesSegmentControl.selectedSegmentIndex = 0
         defaultTimesSegmentControl.addTarget(self, action: "defaultTimeChange:", forControlEvents: UIControlEvents.ValueChanged)
         
         
         
+        
+        
+        
+        
         var countUpOrDownSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Count up", "Count down"])
-        countUpOrDownSegmentControl.frame = CGRectMake(defaultTimesSegmentControl.frame.origin.x, defaultTimesSegmentControl.frame.origin.y + defaultTimesSegmentControl.frame.height + spaceForEach, defaultTimesSegmentControl.frame.width, 20.0)
+        countUpOrDownSegmentControl.frame = CGRectMake(defaultTimesSegmentControl.frame.origin.x, defaultTimesSegmentControl.frame.origin.y + defaultTimesSegmentControl.frame.height + spaceForEach, defaultTimesSegmentControl.frame.width, segmentControlheight)
         countUpOrDownSegmentControl.selectedSegmentIndex = 1
         countUpOrDownSegmentControl.addTarget(self, action: "countUpValueChange:", forControlEvents: UIControlEvents.ValueChanged)
         
 
         self.addSubview(timerLabel)
         self.addSubview(timerPickerView)
-        self.addSubview(hoursLabel)
-        self.addSubview(minutesLabel)
-        self.addSubview(secondsLabel)
+        self.addSubview(hoursLabel!)
+        self.addSubview(minutesLabel!)
+        self.addSubview(secondsLabel!)
         self.addSubview(defaultTimesSegmentControl)
         self.addSubview(countUpOrDownSegmentControl)
         
@@ -121,49 +158,116 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
-
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
         
-        return "\(row)"
+        if(defaultOrCustomTimerToggleBool == true){
+            
+            var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width, pickerView.frame.size.height))
+            mainLabel.text = defaultTimerOptions[row]
+            mainLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            mainLabel.textAlignment = .Center
+            return mainLabel
+            
+        }else{
+            
+            var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width / 3, pickerView.frame.size.height))
+            mainLabel.text = "\(row)"
+            mainLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            mainLabel.textAlignment = .Center
+            return mainLabel
+        }
+        
     }
-    
+
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 3
+        
+        if(defaultOrCustomTimerToggleBool == true){
+            
+            return 1
+            
+        }else{
+            
+            return 3
+        }
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if(component == 0){
-            return 13
-        }else if(component == 1){
-            return 60
+        if(defaultOrCustomTimerToggleBool == true){
+            
+            return defaultTimerOptions.count
+            
         }else{
-            return 60
+            
+            if(component == 0){
+                
+                return 13
+                
+            }else if(component == 1){
+                
+                return 60
+                
+            }else{
+                
+                return 60
+            }
         }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if(component == 0){
+        
+        if(defaultOrCustomTimerToggleBool == true){
             
-            hours = row
+            finalValueForDefault = literalMeaningOfDefaultTimerOptions[row]
             
-        }else if(component == 1){
+        }else{
             
-            minutes = row
+            if(component == 0){
             
-        }else if(component == 2){
+                hours = row
             
-            seconds = row
+            }else if(component == 1){
             
+                minutes = row
+            
+            }else if(component == 2){
+            
+                seconds = row
+            
+            }
         }
         
     }
     
+    
+    // toggling back and forth - default and custom times //
     func defaultTimeChange(sender:AnyObject){
         
-        println("sender \(sender.selectedSegmentIndex)")
+        if(sender.selectedSegmentIndex == 0){
+            
+            defaultOrCustomTimerToggleBool = true
+            timerPickerView.reloadAllComponents()
+            hoursLabel?.hidden = true
+            secondsLabel?.hidden = true
+            minutesLabel!.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width, 20.0)
+            
+            minutesLabel!.text = "Default Times"
+            
+            
+        }else{
+            
+            defaultOrCustomTimerToggleBool = false
+            timerPickerView.reloadAllComponents()
+            hoursLabel?.hidden = false
+            secondsLabel?.hidden = false
+            
+            minutesLabel!.frame = CGRectMake(hoursLabel!.frame.origin.x + hoursLabel!.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0)
+            
+            minutesLabel?.text = "Min"
+            
+        }
         
     }
     
@@ -181,13 +285,24 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     // notifys the main view that the donebutton has been clicked //
     func doneButtonOnClick(){
         
-        var tempTotalSecondsToSendBack = seconds + (minutes * 60) + (hours * 60 * 60)
+        if(defaultOrCustomTimerToggleBool == true){
+            
+            delegate?.doneButtonClick()
+            
+            // send back the info //
+            delegate?.returnTimerWithInfo(finalValueForDefault, countUpOrDown: countUpOrCountDownBool)
+            
+            
+        }else{
         
-        delegate?.doneButtonClick()
+            var tempTotalSecondsToSendBack = seconds + (minutes * 60) + (hours * 60 * 60)
         
-        // send back the info //
-        delegate?.returnTimerWithInfo(tempTotalSecondsToSendBack, countUpOrDown: countUpOrCountDownBool)
+            delegate?.doneButtonClick()
         
+            // send back the info //
+            delegate?.returnTimerWithInfo(tempTotalSecondsToSendBack, countUpOrDown: countUpOrCountDownBool)
+        
+        }
     }
     
     
