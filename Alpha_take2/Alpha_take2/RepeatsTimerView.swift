@@ -26,10 +26,10 @@ class RepeatsTimerView: UIView {
         
         self.frame = _callingView!.bounds
         
-        var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
-        timerLabel.text = "Set Repeat Options"
-        timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
-        timerLabel.textAlignment = .Center
+        var repeatsLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
+        repeatsLabel.text = "Set Repeat Options"
+        repeatsLabel.textColor = ColorPallete.sharedInstance.whiteColor
+        repeatsLabel.textAlignment = .Center
         
         
         
@@ -49,7 +49,7 @@ class RepeatsTimerView: UIView {
         doneButton.layer.cornerRadius = 10.0
         doneButton.clipsToBounds = true
         
-        self.addSubview(timerLabel)
+        self.addSubview(repeatsLabel)
         self.addSubview(doneButton)
     }
     

@@ -8,10 +8,15 @@
 
 import UIKit
 
+
 class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, ReturnInfoFromColorSchemeViewDelegate, ReturnTimeInBetweenRepeatsInfoDelegate {
     
     var _callingView:UIView?
     var _rowSelected:Int?
+    
+    
+    // **** for the timer row **** //
+    var timerDisplayString:String?
     
     func redrawView(callingView:UIView, rowSelected:Int){
         
@@ -89,7 +94,23 @@ class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, Retu
     // what is returned from the TimePickerUIView //
     func returnTimerWithInfo(totalTimeInseconds: Int, countUpOrDown: Bool) {
         
-        println("total time in seconds \(totalTimeInseconds) and count up or down \(countUpOrDown)")
+        println("total time in seconds \(totalTimeInseconds) and count down or up \(countUpOrDown)")
+        
+    }
+    
+    func returnLiteralTime(hours: Int, minutes: Int, seconds: Int) {
+        
+        var totalTimeInSeconds = seconds + (minutes * 60) + (hours * 60 * 60)
+        
+        if(hours != 0 && minutes != 0 && seconds != 0){
+            
+            timerDisplayString = "\(hours):\(minutes):\(seconds)"
+            
+        }else{
+            
+            timerDisplayString = "00:00:00"
+            
+        }
         
     }
     

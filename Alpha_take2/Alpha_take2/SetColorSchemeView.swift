@@ -26,10 +26,10 @@ class SetColorSchemeView: UIView {
         
         self.frame = _callingView!.bounds
         
-        var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
-        timerLabel.text = "Set Color Scheme Options"
-        timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
-        timerLabel.textAlignment = .Center
+        var colorLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
+        colorLabel.text = "Set Color Scheme Options"
+        colorLabel.textColor = ColorPallete.sharedInstance.whiteColor
+        colorLabel.textAlignment = .Center
         
         
         
@@ -49,7 +49,7 @@ class SetColorSchemeView: UIView {
         doneButton.layer.cornerRadius = 10.0
         doneButton.clipsToBounds = true
         
-        self.addSubview(timerLabel)
+        self.addSubview(colorLabel)
         self.addSubview(doneButton)
     }
     

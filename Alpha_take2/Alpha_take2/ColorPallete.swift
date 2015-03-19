@@ -17,6 +17,7 @@ class ColorPallete{
     var darkGreenColor:UIColor = UIColor(red: 0.075, green: 0.467, blue: 0.557, alpha: 1.0)
     var redColor:UIColor = UIColor(red: 0.553, green: 0.220, blue: 0.118, alpha: 1.0)
     var orangeColor:UIColor = UIColor(red: 0.855, green: 0.435, blue: 0.18, alpha: 1.0)
+    var deepBlueColor:UIColor = UIColor(red: 0.0, green: 0.478, blue: 1.0, alpha: 1.0)
     
     
     class var sharedInstance: ColorPallete{

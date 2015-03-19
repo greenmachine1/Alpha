@@ -17,9 +17,12 @@ import UIKit
 class SideBarTableViewTableViewController: UITableViewController, UITextFieldDelegate {
     
     var NORMAL_SIZE_OF_CELL:CGFloat = 80.0
-    var BLANK_SIZE_OF_CELL:CGFloat = 10.0
+    var SIZE_OF_IMAGES:CGFloat = 70.0
+    var BLANK_SIZE_OF_CELL:CGFloat = 5.0
     var CORNER_RADIUS:CGFloat = 10.0
     var mainView:UIView = UIView()
+    
+    var _literalTimeString:String = "00:00:00"
     
     var delegate:ReturnInformationFromSideBar?
 
@@ -45,6 +48,12 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         blankCell!.backgroundColor = UIColor.clearColor()
         blankCell!.userInteractionEnabled = false
         
+        if(mainView.frame.height == 480){
+            SIZE_OF_IMAGES = 60
+        }else{
+            SIZE_OF_IMAGES = 70
+        }
+        
 
         
         
@@ -65,7 +74,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
 
             // creating the left icon image //
-            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
+            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = CORNER_RADIUS
             leftImage.clipsToBounds = true
             
@@ -73,7 +82,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             // creating the textfield entry point //
             var userInputField:UITextField = UITextField(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0),
-                (cell!.frame.origin.y + cell!.frame.height / 4) + 20.0, 200.0, 25.0))
+                (cell!.frame.origin.y + cell!.frame.height / 4) + 15.0, 200.0, 30.0))
+
             userInputField.backgroundColor = UIColor.whiteColor()
             userInputField.borderStyle = UITextBorderStyle.RoundedRect
             userInputField.layer.borderColor = ColorPallete.sharedInstance.darkGreenColor.CGColor
@@ -85,7 +95,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             
             // event name label //
-            var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 20.0, userInputField.frame.width, 20.0))
+            var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 22.0, userInputField.frame.width, 20.0))
             nameOfEventLabel.textColor = ColorPallete.sharedInstance.whiteColor
             nameOfEventLabel.text = "Event name"
             nameOfEventLabel.textAlignment = .Center
@@ -114,14 +124,14 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
             
-            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
+            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
             
             // the main timer label -- will get populated with the users selected time info //
             var timerInfoLabel:UILabel = UILabel(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 200.0, 40.0))
-            timerInfoLabel.text = "00:00:00"
+            timerInfoLabel.text = _literalTimeString
             timerInfoLabel.font = UIFont(name: "Courier", size: 40.0)
             timerInfoLabel.textColor = ColorPallete.sharedInstance.whiteColor
 
@@ -156,19 +166,26 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
             
-            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
+            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
-            var repeatsSegmentControl:UISegmentedControl = UISegmentedControl(items: ["Yes", "No"])
-            repeatsSegmentControl.frame = CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 200.0, 20.0)
+            var repeatsSegmentControl:UISegmentedControl = UISegmentedControl(items: ["On", "Off"])
+            repeatsSegmentControl.frame = CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 15.0, 200.0, 30.0)
             repeatsSegmentControl.selectedSegmentIndex = 0
             
+            
+            
+            var repeatsTitle:UILabel = UILabel(frame: CGRectMake(repeatsSegmentControl.frame.origin.x,repeatsSegmentControl.frame.origin.y - 22.0, repeatsSegmentControl.frame.size.width, 20.0))
+            repeatsTitle.text = "Repeats"
+            repeatsTitle.textColor = ColorPallete.sharedInstance.whiteColor
+            repeatsTitle.textAlignment = .Center
             
             
 
             cell?.addSubview(leftImage)
             cell?.addSubview(repeatsSegmentControl)
+            cell?.addSubview(repeatsTitle)
             
             return cell!
             
@@ -188,7 +205,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
             
-            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
+            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
@@ -213,7 +230,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
             
-            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, 70.0, 70.0)
+            leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
@@ -236,10 +253,19 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         
         delegate?.returnOptionSelected(indexPath.row)
         
+        
 
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        var heightOfContainerView = mainView.frame.size.height
+        
+        if(heightOfContainerView == 480){
+            NORMAL_SIZE_OF_CELL = 70
+        }else{
+            NORMAL_SIZE_OF_CELL = 80
+        }
         
         if(indexPath.row == 0){
             return NORMAL_SIZE_OF_CELL
@@ -271,6 +297,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         textField.resignFirstResponder()
         return true
     }
+    
+    
 
 
     

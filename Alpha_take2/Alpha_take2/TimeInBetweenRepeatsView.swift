@@ -26,10 +26,10 @@ class TimeInBetweenRepeatsView: UIView {
         
         self.frame = _callingView!.bounds
         
-        var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
-        timerLabel.text = "Set Time In Between Repeats Options"
-        timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
-        timerLabel.textAlignment = .Center
+        var timeBetweenLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
+        timeBetweenLabel.text = "Set Time In Between Repeats Options"
+        timeBetweenLabel.textColor = ColorPallete.sharedInstance.whiteColor
+        timeBetweenLabel.textAlignment = .Center
         
         
         // custom info here //
@@ -49,7 +49,7 @@ class TimeInBetweenRepeatsView: UIView {
         doneButton.layer.cornerRadius = 10.0
         doneButton.clipsToBounds = true
         
-        self.addSubview(timerLabel)
+        self.addSubview(timeBetweenLabel)
         self.addSubview(doneButton)
     }
     

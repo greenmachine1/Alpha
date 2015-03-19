@@ -13,6 +13,9 @@ import UIKit
     func doneButtonClick()
     func returnTimerWithInfo(totalTimeInseconds:Int, countUpOrDown:Bool)
     
+    // ** this is for display purposes in the sidebar table view //
+    func returnLiteralTime(hours:Int, minutes:Int, seconds:Int)
+    
 }
 
 class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -32,6 +35,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var literalMeaningOfDefaultTimerOptions = [0,10,30,60,300,600,900,1200,1800,2700,3600,7200,18000,28800,43200, 86400]
     
     var finalValueForDefault:Int = 0
+    var defaultValueStringForm = ""
     
     var defaultOrCustomTimerToggleBool:Bool = true
     
@@ -55,18 +59,20 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
         timerLabel.text = "Set Timer"
-        timerLabel.textColor = ColorPallete.sharedInstance.darkGreenColor
+        timerLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
         timerLabel.textAlignment = .Center
         
         
         // done button //
         var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         doneButton.frame = CGRectMake(self.frame.origin.x + 20.0, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
-        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
+        doneButton.backgroundColor = UIColor.clearColor()
         doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(ColorPallete.sharedInstance.deepBlueColor , forState: UIControlState.Normal)
         doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
         doneButton.layer.cornerRadius = 10.0
+        doneButton.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        doneButton.layer.borderWidth = 1.0
         doneButton.clipsToBounds = true
         
         
@@ -79,24 +85,27 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         timerPickerView.frame = CGRectMake((self.frame.width / 2) - (timerPickerView.frame.width / 2) + 40.0, (self.frame.height / 2) - (timerPickerView.frame.height / 2), self.frame.width - 40.0, 162.0)
 
         timerPickerView.delegate = self
-        timerPickerView.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
+        timerPickerView.backgroundColor = UIColor.clearColor()
         timerPickerView.layer.cornerRadius = 10.0
+        timerPickerView.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        timerPickerView.layer.borderWidth = 1.0
+    
         
         
         // timer labels //
         hoursLabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
         hoursLabel!.text = "Hrs"
-        hoursLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        hoursLabel!.textColor = ColorPallete.sharedInstance.deepBlueColor
         hoursLabel!.textAlignment = .Center
         
         minutesLabel = UILabel(frame: CGRectMake(hoursLabel!.frame.origin.x + hoursLabel!.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
         minutesLabel!.text = "Min"
-        minutesLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        minutesLabel!.textColor = ColorPallete.sharedInstance.deepBlueColor
         minutesLabel!.textAlignment = .Center
         
         secondsLabel = UILabel(frame: CGRectMake(minutesLabel!.frame.origin.x + minutesLabel!.frame.width, timerPickerView.frame.origin.y - 20.0, timerPickerView.frame.width / 3, 20.0))
         secondsLabel!.text = "Sec"
-        secondsLabel!.textColor = ColorPallete.sharedInstance.darkGreenColor
+        secondsLabel!.textColor = ColorPallete.sharedInstance.deepBlueColor
         secondsLabel!.textAlignment = .Center
         
         
@@ -133,6 +142,9 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         defaultTimesSegmentControl.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y + timerPickerView.frame.height + spaceForEach, timerPickerView.frame.width, segmentControlheight)
         defaultTimesSegmentControl.selectedSegmentIndex = 0
         defaultTimesSegmentControl.addTarget(self, action: "defaultTimeChange:", forControlEvents: UIControlEvents.ValueChanged)
+        defaultTimesSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.lightBlueColor.CGColor
+        defaultTimesSegmentControl.layer.cornerRadius = 5.0
+        defaultTimesSegmentControl.clipsToBounds = true
         
         
         
@@ -144,6 +156,9 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         countUpOrDownSegmentControl.frame = CGRectMake(defaultTimesSegmentControl.frame.origin.x, defaultTimesSegmentControl.frame.origin.y + defaultTimesSegmentControl.frame.height + spaceForEach, defaultTimesSegmentControl.frame.width, segmentControlheight)
         countUpOrDownSegmentControl.selectedSegmentIndex = 1
         countUpOrDownSegmentControl.addTarget(self, action: "countUpValueChange:", forControlEvents: UIControlEvents.ValueChanged)
+        countUpOrDownSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.lightBlueColor.CGColor
+        countUpOrDownSegmentControl.layer.cornerRadius = 5.0
+        countUpOrDownSegmentControl.clipsToBounds = true
         
 
         self.addSubview(timerLabel)
@@ -165,7 +180,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             
             var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width, pickerView.frame.size.height))
             mainLabel.text = defaultTimerOptions[row]
-            mainLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            mainLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
             mainLabel.textAlignment = .Center
             return mainLabel
             
@@ -173,7 +188,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             
             var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width / 3, pickerView.frame.size.height))
             mainLabel.text = "\(row)"
-            mainLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            mainLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
             mainLabel.textAlignment = .Center
             return mainLabel
         }
@@ -221,6 +236,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         if(defaultOrCustomTimerToggleBool == true){
             
             finalValueForDefault = literalMeaningOfDefaultTimerOptions[row]
+            defaultValueStringForm = defaultTimerOptions[row]
             
         }else{
             
@@ -293,6 +309,15 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             delegate?.returnTimerWithInfo(finalValueForDefault, countUpOrDown: countUpOrCountDownBool)
             
             
+            InformationIntermediary.sharedInstance.timeInSeconds = finalValueForDefault
+            InformationIntermediary.sharedInstance.literalTimeString = defaultValueStringForm
+            
+            
+            // send out a notification telling the side bar that it needs to update //
+            let notifyOfDataChange = NSNotificationCenter.defaultCenter()
+            notifyOfDataChange.postNotificationName("dataChange", object: self)
+            
+            
         }else{
         
             var tempTotalSecondsToSendBack = seconds + (minutes * 60) + (hours * 60 * 60)
@@ -301,7 +326,35 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
             // send back the info //
             delegate?.returnTimerWithInfo(tempTotalSecondsToSendBack, countUpOrDown: countUpOrCountDownBool)
-        
+            
+            
+            var tempHours = "00"
+            var tempMinutes = "00"
+            var tempSeconds = "00"
+            
+            if(hours < 10){
+                tempHours = "0\(hours)"
+            }else{
+                tempHours = "\(hours)"
+            }
+            if(minutes < 10){
+                tempMinutes = "0\(minutes)"
+            }else{
+                tempMinutes = "\(minutes)"
+            }
+            if(seconds < 10){
+                tempSeconds = "0\(seconds)"
+            }else{
+                tempSeconds = "\(seconds)"
+            }
+            
+            
+            InformationIntermediary.sharedInstance.timeInSeconds = tempTotalSecondsToSendBack
+            InformationIntermediary.sharedInstance.literalTimeString = "\(tempHours):\(tempMinutes):\(tempSeconds)"
+            
+            // send out a notification telling the side bar that it needs to update //
+            let notifyOfDataChange = NSNotificationCenter.defaultCenter()
+            notifyOfDataChange.postNotificationName("dataChange", object: self)
         }
     }
     

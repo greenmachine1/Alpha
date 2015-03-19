@@ -30,6 +30,13 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     
     init(view:UIView, navBarHeight:CGFloat) {
         super.init()
+        
+        
+        // gets notified that data has changed from the sidebar and that it needs to be updated //
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSideBar:", name: "dataChange", object: nil)
+        
+        
+
 
         _view = view
         heightOfNavigationBar = navBarHeight
@@ -51,7 +58,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         sideBarView.backgroundColor = UIColor.clearColor()
         
         
-        
+        sideBarTableView.mainView = _view
         sideBarView.addSubview(sideBarTableView.tableView)
         
         // adding the side bar to the calling view //
@@ -88,6 +95,21 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         delegate?.returnSelected(row)
         
     }
+    
+    
+    
+    
+    // this is the observer that gets called when the user updates info and gets put //
+    // into the singleton data class //
+    func updateSideBar(sender:AnyObject){
+        
+        sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
+        sideBarTableView.tableView.reloadData()
+        
+    }
+    
+
+
     
     
     
