@@ -22,7 +22,25 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     var CORNER_RADIUS:CGFloat = 10.0
     var mainView:UIView = UIView()
     
+    
+    
+    
+    // **** variables that can be set by the ouside **** //
     var _literalTimeString:String = "00:00:00"
+    
+    // by default, countDownOrUp is set to true which means its a count down timer //
+    var countDownOrUp:Bool = true
+    
+    var eventName:String = ""
+    
+    var repeatTimerOptionsString:String = "Repeats Options"
+    
+    
+    // **** ---- **** //
+    
+    
+    
+    
     
     var delegate:ReturnInformationFromSideBar?
 
@@ -88,6 +106,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             userInputField.borderStyle = UITextBorderStyle.RoundedRect
             userInputField.layer.borderColor = ColorPallete.sharedInstance.darkGreenColor.CGColor
             userInputField.placeholder = "Enter event name here"
+            userInputField.text = eventName
             userInputField.clearsOnBeginEditing = true
             
             userInputField.delegate = self
@@ -117,6 +136,13 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         // second cell -- enter time event cell -- //
         }else if(indexPath.row == 2){
             
+            var countUpOrDownString = ""
+            if(countDownOrUp == true){
+                countUpOrDownString = "DN"
+            }else{
+                countUpOrDownString = "UP"
+            }
+            
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
             
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
@@ -131,9 +157,11 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             // the main timer label -- will get populated with the users selected time info //
             var timerInfoLabel:UILabel = UILabel(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 200.0, 40.0))
-            timerInfoLabel.text = _literalTimeString
-            timerInfoLabel.font = UIFont(name: "Courier", size: 40.0)
+            
+            timerInfoLabel.text = "\(_literalTimeString) \(countUpOrDownString)"
+            timerInfoLabel.font = UIFont(name: "Courier", size: 30.0)
             timerInfoLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            timerInfoLabel.textAlignment = .Center
 
             
             // set timer label //
@@ -170,22 +198,33 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
-            var repeatsSegmentControl:UISegmentedControl = UISegmentedControl(items: ["On", "Off"])
-            repeatsSegmentControl.frame = CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0), (cell!.frame.origin.y + cell!.frame.height / 4) + 15.0, 200.0, 30.0)
-            repeatsSegmentControl.selectedSegmentIndex = 0
+            
+            
+            var repeatsInfo:UILabel = UILabel(frame: CGRectMake((leftImage.frame.origin.x + leftImage.frame.width) + 10.0, (cell!.frame.origin.y + cell!.frame.height / 4) + 10.0, 140.0, 40.0))
+            
+            repeatsInfo.text = repeatTimerOptionsString
+            repeatsInfo.textAlignment = .Center
+            repeatsInfo.textColor = ColorPallete.sharedInstance.whiteColor
+            repeatsInfo.font = UIFont(name: "Courier", size: 15.0)
+            
+ 
             
             
             
-            var repeatsTitle:UILabel = UILabel(frame: CGRectMake(repeatsSegmentControl.frame.origin.x,repeatsSegmentControl.frame.origin.y - 22.0, repeatsSegmentControl.frame.size.width, 20.0))
-            repeatsTitle.text = "Repeats"
+            
+            var turnOnAndOffRepeatsSwitch:UISwitch = UISwitch(frame: CGRectMake(cell!.frame.width - 80.0, cell!.frame.height / 2, 20.0, 20.0))
+            
+            var repeatsTitle:UILabel = UILabel(frame: CGRectMake(repeatsInfo.frame.origin.x,repeatsInfo.frame.origin.y - 20.0, repeatsInfo.frame.size.width + turnOnAndOffRepeatsSwitch.frame.width + 10.0, 20.0))
+            repeatsTitle.text = "Repeats Info"
             repeatsTitle.textColor = ColorPallete.sharedInstance.whiteColor
             repeatsTitle.textAlignment = .Center
             
             
 
             cell?.addSubview(leftImage)
-            cell?.addSubview(repeatsSegmentControl)
+            cell?.addSubview(repeatsInfo)
             cell?.addSubview(repeatsTitle)
+            cell?.addSubview(turnOnAndOffRepeatsSwitch)
             
             return cell!
             

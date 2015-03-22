@@ -29,13 +29,13 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var minutes:Int = 0
     var seconds:Int = 0
     
-    var defaultTimerOptions = ["Zero","10 Seconds","30 Seconds","1 Minute","5 Minutes","10 Minutes","15 Minutes", "20 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours", "5 Hours", "8 Hours", "12 Hours", "24 Hours"]
+    var defaultTimerOptions = ["Zero","10 Sec","30 Sec","1 Min","5 Min","10 Min","15 Min", "20 Min", "30 Min", "45 Min", "1 Hour", "2 Hours", "5 Hours", "8 Hours", "12 Hours", "24 Hours"]
     
     // literal meaning in seconds of the default settings //
     var literalMeaningOfDefaultTimerOptions = [0,10,30,60,300,600,900,1200,1800,2700,3600,7200,18000,28800,43200, 86400]
     
     var finalValueForDefault:Int = 0
-    var defaultValueStringForm = ""
+    var defaultValueStringForm = "00:00:00"
     
     var defaultOrCustomTimerToggleBool:Bool = true
     
@@ -173,6 +173,10 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 60.0
+    }
+    
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
         
@@ -181,6 +185,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width, pickerView.frame.size.height))
             mainLabel.text = defaultTimerOptions[row]
             mainLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
+            mainLabel.font = UIFont(name: "Courier", size: 40.0)
             mainLabel.textAlignment = .Center
             return mainLabel
             
@@ -189,6 +194,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             var mainLabel:UILabel = UILabel(frame: CGRectMake(0.0, 0.0, pickerView.frame.size.width / 3, pickerView.frame.size.height))
             mainLabel.text = "\(row)"
             mainLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
+            mainLabel.font = UIFont(name: "Courier", size: 40.0)
             mainLabel.textAlignment = .Center
             return mainLabel
         }
@@ -217,7 +223,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             
             if(component == 0){
                 
-                return 13
+                return 24
                 
             }else if(component == 1){
                 
@@ -309,8 +315,11 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             delegate?.returnTimerWithInfo(finalValueForDefault, countUpOrDown: countUpOrCountDownBool)
             
             
+            // modifying the Information Intermediary singleton and then notifying the table view that //
+            // it needs to update //
             InformationIntermediary.sharedInstance.timeInSeconds = finalValueForDefault
             InformationIntermediary.sharedInstance.literalTimeString = defaultValueStringForm
+            InformationIntermediary.sharedInstance.countDownOrUpBool = countUpOrCountDownBool
             
             
             // send out a notification telling the side bar that it needs to update //
@@ -351,6 +360,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             
             InformationIntermediary.sharedInstance.timeInSeconds = tempTotalSecondsToSendBack
             InformationIntermediary.sharedInstance.literalTimeString = "\(tempHours):\(tempMinutes):\(tempSeconds)"
+            InformationIntermediary.sharedInstance.countDownOrUpBool = countUpOrCountDownBool
             
             // send out a notification telling the side bar that it needs to update //
             let notifyOfDataChange = NSNotificationCenter.defaultCenter()

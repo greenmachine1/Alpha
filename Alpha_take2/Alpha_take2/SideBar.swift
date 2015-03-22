@@ -104,6 +104,11 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     func updateSideBar(sender:AnyObject){
         
         sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
+        sideBarTableView.countDownOrUp = InformationIntermediary.sharedInstance.countDownOrUpBool
+        sideBarTableView.repeatTimerOptionsString = InformationIntermediary.sharedInstance.timeInBetweenRepeatsLiteralString
+        
+        
+        
         sideBarTableView.tableView.reloadData()
         
     }
