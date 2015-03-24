@@ -18,11 +18,15 @@ class InformationIntermediary: NSObject {
     
     // true is count down, false is count up //
     var countDownOrUpBool:Bool = true
-    var colorScheme:[AnyObject]?
+    
     var repeats:Bool = false
     var numberOfRepeats:Int = 0
     var timeInBetweenRepeatsInSeconds:Int = 0
     var timeInBetweenRepeatsLiteralString:String = ""
+    
+    var leftColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var centerColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var rightColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
 
     class var sharedInstance: InformationIntermediary{
@@ -42,7 +46,6 @@ class InformationIntermediary: NSObject {
         literalTimeString = "00:00:00"
         eventName = ""
         countDownOrUpBool = true
-        colorScheme?.removeAll(keepCapacity: false)
         repeats = false
         numberOfRepeats = 0
         timeInBetweenRepeatsInSeconds = 0

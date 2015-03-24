@@ -26,6 +26,12 @@ class TimeInBetweenRepeatsView: UIView {
         
         self.frame = _callingView!.bounds
         
+        let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        blurView.frame = self.bounds
+        
+        
+        self.addSubview(blurView)
+        
         var timeBetweenLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
         timeBetweenLabel.text = "Set Time In Between Repeats Options"
         timeBetweenLabel.textColor = ColorPallete.sharedInstance.whiteColor
@@ -40,13 +46,16 @@ class TimeInBetweenRepeatsView: UIView {
         
         
         
+        // done button //
         var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         doneButton.frame = CGRectMake(self.frame.origin.x + 20.0, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
-        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
+        doneButton.backgroundColor = UIColor.clearColor()
         doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(ColorPallete.sharedInstance.deepBlueColor , forState: UIControlState.Normal)
         doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
         doneButton.layer.cornerRadius = 10.0
+        doneButton.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        doneButton.layer.borderWidth = 1.0
         doneButton.clipsToBounds = true
         
         self.addSubview(timeBetweenLabel)

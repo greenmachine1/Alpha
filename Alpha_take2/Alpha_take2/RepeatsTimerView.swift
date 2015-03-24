@@ -40,6 +40,12 @@ class RepeatsTimerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         self.frame = _callingView!.bounds
         
+        let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        blurView.frame = self.bounds
+        
+        
+        self.addSubview(blurView)
+        
         var repeatsLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
         repeatsLabel.text = "Set Repeat Options"
         repeatsLabel.textColor = ColorPallete.sharedInstance.whiteColor
@@ -72,13 +78,16 @@ class RepeatsTimerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         
         
+        // done button //
         var doneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         doneButton.frame = CGRectMake(self.frame.origin.x + 20.0, self.frame.height - 60.0, self.frame.width - 40.0, 40.0)
-        doneButton.backgroundColor = ColorPallete.sharedInstance.darkGreenColor
+        doneButton.backgroundColor = UIColor.clearColor()
         doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(ColorPallete.sharedInstance.deepBlueColor , forState: UIControlState.Normal)
         doneButton.addTarget(self, action: "doneButtonOnClick", forControlEvents: UIControlEvents.TouchUpInside)
         doneButton.layer.cornerRadius = 10.0
+        doneButton.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        doneButton.layer.borderWidth = 1.0
         doneButton.clipsToBounds = true
         
         self.addSubview(repeatsLabel)

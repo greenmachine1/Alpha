@@ -97,6 +97,13 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     }
     
     
+    // the major done button was selected in the sidebar and needs to close //
+    func doneButtonSelected() {
+        
+        self.closeSideBar()
+    }
+    
+    
     
     
     // this is the observer that gets called when the user updates info and gets put //
@@ -104,8 +111,15 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     func updateSideBar(sender:AnyObject){
         
         sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
+        
         sideBarTableView.countDownOrUp = InformationIntermediary.sharedInstance.countDownOrUpBool
+        
         sideBarTableView.repeatTimerOptionsString = InformationIntermediary.sharedInstance.timeInBetweenRepeatsLiteralString
+        
+        // setting the colors //
+        sideBarTableView._leftColorScheme = InformationIntermediary.sharedInstance.leftColor
+        sideBarTableView._centerColorScheme = InformationIntermediary.sharedInstance.centerColor
+        sideBarTableView._rightColorScheme = InformationIntermediary.sharedInstance.rightColor
         
         
         

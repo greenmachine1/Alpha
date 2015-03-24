@@ -38,7 +38,7 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
             
             sidebar.openSideBar()
             toggleSideBar = true
-            self.navigationItem.leftBarButtonItem?.title = "Done"
+            self.navigationItem.leftBarButtonItem?.title = "Cancel"
             
         }else if(toggleSideBar == true){
             

@@ -11,10 +11,11 @@ import UIKit
 @objc protocol ReturnInformationFromSideBar{
     
     func returnOptionSelected(row:Int)
+    func doneButtonSelected()
     
 }
 
-class SideBarTableViewTableViewController: UITableViewController, UITextFieldDelegate {
+class SideBarTableViewTableViewController: UITableViewController, UITextFieldDelegate, UIAlertViewDelegate {
     
     var NORMAL_SIZE_OF_CELL:CGFloat = 80.0
     var SIZE_OF_IMAGES:CGFloat = 70.0
@@ -34,6 +35,10 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     var eventName:String = ""
     
     var repeatTimerOptionsString:String = "Repeats Options"
+    
+    var _leftColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var _centerColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var _rightColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
     
     // **** ---- **** //
@@ -78,15 +83,18 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         // first cell -- enter name of event cell -- //
         if(indexPath.row == 0){
             
+            var leftImage:UIImageView = UIImageView(image: UIImage(named: "color_icon.png"))
             
             
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
         
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
+            cell!.backgroundColor = ColorPallete.sharedInstance.whiteColor
             cell!.layer.cornerRadius = CORNER_RADIUS
             cell!.clipsToBounds = true
             cell!.selectionStyle = .None
+            cell!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            cell!.layer.borderWidth = 1.0
             
             
             
@@ -104,8 +112,11 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
 
             userInputField.backgroundColor = UIColor.whiteColor()
             userInputField.borderStyle = UITextBorderStyle.RoundedRect
-            userInputField.layer.borderColor = ColorPallete.sharedInstance.darkGreenColor.CGColor
-            userInputField.placeholder = "Enter event name here"
+            userInputField.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            userInputField.layer.borderWidth = 1.0
+            userInputField.layer.cornerRadius = 10.0
+            userInputField.clipsToBounds = true
+            userInputField.placeholder = "Optional"
             userInputField.text = eventName
             userInputField.clearsOnBeginEditing = true
             
@@ -115,8 +126,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             // event name label //
             var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 22.0, userInputField.frame.width, 20.0))
-            nameOfEventLabel.textColor = ColorPallete.sharedInstance.whiteColor
-            nameOfEventLabel.text = "Event name"
+            nameOfEventLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
+            nameOfEventLabel.text = "Set Event name"
             nameOfEventLabel.textAlignment = .Center
 
             
@@ -145,14 +156,21 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
             
+            var leftImage:UIImageView = UIImageView(image: UIImage(named: "timer_icon.png"))
+            
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
+            cell!.backgroundColor = ColorPallete.sharedInstance.whiteColor
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
+            cell!.selectionStyle = UITableViewCellSelectionStyle.None
+            cell!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            cell!.layer.borderWidth = 1.0
             
             leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
+            
+            
             
             
             // the main timer label -- will get populated with the users selected time info //
@@ -160,13 +178,13 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             timerInfoLabel.text = "\(_literalTimeString) \(countUpOrDownString)"
             timerInfoLabel.font = UIFont(name: "Courier", size: 30.0)
-            timerInfoLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            timerInfoLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
             timerInfoLabel.textAlignment = .Center
 
             
             // set timer label //
             var timerLabel:UILabel = UILabel(frame: CGRectMake(timerInfoLabel.frame.origin.x, timerInfoLabel.frame.origin.y - 20.0, timerInfoLabel.frame.width, 20.0))
-            timerLabel.textColor = ColorPallete.sharedInstance.whiteColor
+            timerLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
             timerLabel.text = "Set Timer"
             timerLabel.textAlignment = .Center
             
@@ -187,12 +205,17 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         // third cell -- repeats time event cell -- //
         }else if(indexPath.row == 4){
             
+            var leftImage:UIImageView = UIImageView(image: UIImage(named: "repeats_icon.png"))
+            
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
             
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
+            cell!.backgroundColor = ColorPallete.sharedInstance.whiteColor
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
+            cell!.selectionStyle = UITableViewCellSelectionStyle.None
+            cell!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            cell!.layer.borderWidth = 1.0
             
             leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
@@ -204,19 +227,19 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             repeatsInfo.text = repeatTimerOptionsString
             repeatsInfo.textAlignment = .Center
-            repeatsInfo.textColor = ColorPallete.sharedInstance.whiteColor
+            repeatsInfo.textColor = ColorPallete.sharedInstance.deepBlueColor
             repeatsInfo.font = UIFont(name: "Courier", size: 15.0)
             
- 
+
             
             
             
             
-            var turnOnAndOffRepeatsSwitch:UISwitch = UISwitch(frame: CGRectMake(cell!.frame.width - 80.0, cell!.frame.height / 2, 20.0, 20.0))
+            var turnOnAndOffRepeatsSwitch:UISwitch = UISwitch(frame: CGRectMake(cell!.frame.width - 80.0, repeatsInfo.frame.origin.y + 20.0, 20.0, 20.0))
             
             var repeatsTitle:UILabel = UILabel(frame: CGRectMake(repeatsInfo.frame.origin.x,repeatsInfo.frame.origin.y - 20.0, repeatsInfo.frame.size.width + turnOnAndOffRepeatsSwitch.frame.width + 10.0, 20.0))
-            repeatsTitle.text = "Repeats Info"
-            repeatsTitle.textColor = ColorPallete.sharedInstance.whiteColor
+            repeatsTitle.text = "Set Repeat Options"
+            repeatsTitle.textColor = ColorPallete.sharedInstance.deepBlueColor
             repeatsTitle.textAlignment = .Center
             
             
@@ -234,21 +257,69 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             return blankCell!
             
         
-        // forth cell -- repeats detail event cell -- //
+        // forth cell -- Color Scheme event cell -- //
         }else if(indexPath.row == 6){
             
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
             
+            var leftImage:UIImageView = UIImageView(image: UIImage(named: "color_icon.png"))
+            
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
+            cell!.backgroundColor = ColorPallete.sharedInstance.whiteColor
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
+            cell!.selectionStyle = UITableViewCellSelectionStyle.None
+            cell!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            cell!.layer.borderWidth = 1.0
             
             leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
+            
+            
+            
+            
+            // sets of colors //
+            var leftMostColor:UIView = UIView(frame: CGRectMake((leftImage.frame.origin.x + leftImage.frame.width) + 10, (cell!.frame.origin.y + leftImage.frame.height) - 20.0, (cell!.frame.width - (leftImage.frame.origin.x + leftImage.frame.width) - 40.0) / 3, leftImage.frame.height / 3))
+            
+            leftMostColor.backgroundColor = _leftColorScheme
+            leftMostColor.layer.cornerRadius = 5.0
+            leftMostColor.clipsToBounds = true
+            leftMostColor.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            leftMostColor.layer.borderWidth = 1.0
+            
+            var centerColor:UIView = UIView(frame: CGRectMake(leftMostColor.frame.origin.x + leftMostColor.frame.width, leftMostColor.frame.origin.y, leftMostColor.frame.width, leftMostColor.frame.height))
+            
+            centerColor.backgroundColor = _centerColorScheme
+            centerColor.layer.cornerRadius = 5.0
+            centerColor.clipsToBounds = true
+            centerColor.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            centerColor.layer.borderWidth = 1.0
+            
+            var rightMostColor:UIView = UIView(frame: CGRectMake(centerColor.frame.origin.x + centerColor.frame.width, centerColor.frame.origin.y, centerColor.frame.width, centerColor.frame.height))
+            
+            rightMostColor.backgroundColor = _rightColorScheme
+            rightMostColor.layer.cornerRadius = 5.0
+            rightMostColor.clipsToBounds = true
+            rightMostColor.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            rightMostColor.layer.borderWidth = 1.0
+            
+            var colorSchemeLabel:UILabel = UILabel(frame: CGRectMake(leftMostColor.frame.origin.x, leftImage.frame.origin.y, 200.0, 30.0))
+            colorSchemeLabel.text = "Set Color Scheme"
+            colorSchemeLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
+            colorSchemeLabel.textAlignment = .Center
+            
+            
+            
+            
+            
+            
             cell?.addSubview(leftImage)
+            cell?.addSubview(leftMostColor)
+            cell?.addSubview(centerColor)
+            cell?.addSubview(rightMostColor)
+            cell?.addSubview(colorSchemeLabel)
 
             
             return cell!
@@ -259,21 +330,53 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             return blankCell!
             
             
-        // fifth cell -- color scheme event cell -- //
+        // fifth cell -- Done Cell -- //
         }else if(indexPath.row == 8){
             
             var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
             
+            var leftImage:UIImageView = UIImageView(image: UIImage(named: "done_icon.png"))
+            
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = ColorPallete.sharedInstance.lightBlueColor
+            cell!.backgroundColor = ColorPallete.sharedInstance.whiteColor
             cell!.layer.cornerRadius = 10.0
             cell!.clipsToBounds = true
+            cell!.selectionStyle = UITableViewCellSelectionStyle.None
+            cell!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            cell!.layer.borderWidth = 1.0
             
             leftImage.frame = CGRectMake(cell!.frame.origin.x + 5.0, cell!.frame.origin.y + 5.0, SIZE_OF_IMAGES, SIZE_OF_IMAGES)
             leftImage.layer.cornerRadius = 10.0
             leftImage.clipsToBounds = true
             
+            
+            var doneButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+            doneButton.frame = CGRectMake((leftImage.frame.origin.x + leftImage.frame.width) + 10.0, leftImage.frame.origin.y + cell!.frame.height / 2, 200.0, 40.0)
+            
+            doneButton.setTitle("Done", forState: UIControlState.Normal)
+            doneButton.setTitleColor(ColorPallete.sharedInstance.deepBlueColor, forState: UIControlState.Normal)
+            doneButton.backgroundColor = UIColor.clearColor()
+            doneButton.layer.cornerRadius = 10.0
+            doneButton.clipsToBounds = true
+            doneButton.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            doneButton.layer.borderWidth = 1.0
+            
+            doneButton.addTarget(self, action: "doneWithTimerSelected:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            
+            var doneLabel:UILabel = UILabel(frame: CGRectMake(doneButton.frame.origin.x, doneButton.frame.origin.y - 20.0, doneButton.frame.width, cell!.frame.height / 3))
+            doneLabel.text = "Go!"
+            doneLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
+            doneLabel.textAlignment = .Center
+            
+            
+            
+            
+            
+            
             cell?.addSubview(leftImage)
+            cell?.addSubview(doneButton)
+            cell?.addSubview(doneLabel)
 
             
             return cell!
@@ -286,9 +389,25 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         }
     }
     
+    func doneWithTimerSelected(sender:UIButton){
+        
+        var doneButtonAlert:UIAlertView = UIAlertView(title: "Set Timer?", message: "Do you wish to set this timer?", delegate: self, cancelButtonTitle: "Ok", otherButtonTitles: "Cancel")
+        doneButtonAlert.show()
+    }
+    
+    
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if(buttonIndex == 0){
+            
+            delegate?.doneButtonSelected()
+        }
+    }
+    
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         
         delegate?.returnOptionSelected(indexPath.row)
         

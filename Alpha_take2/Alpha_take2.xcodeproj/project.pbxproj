@@ -16,9 +16,13 @@
 		322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540441AB3D0D900062BD0 /* popUpUI.swift */; };
 		322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540481AB410D300062BD0 /* TimePickerUIView.swift */; };
 		322CBCD81ABA59C000EDF889 /* InformationIntermediary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CBCD71ABA59C000EDF889 /* InformationIntermediary.swift */; };
+		32635D741AC0EB5E008D2AE1 /* color_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D731AC0EB5E008D2AE1 /* color_icon.png */; };
+		32635D761AC0EC28008D2AE1 /* repeats_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D751AC0EC28008D2AE1 /* repeats_icon.png */; };
 		326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF56C1AAE503D00BC2D0D /* SideBar.swift */; };
 		32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
+		32B63C471ABF94BD00F76FA6 /* timer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B63C461ABF94BD00F76FA6 /* timer_icon.png */; };
+		32B63C491ABF951D00F76FA6 /* done_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B63C481ABF951D00F76FA6 /* done_icon.png */; };
 		32BBCFE31AABDA9900C91136 /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */; };
 		32DB18761AB652C6003E32D2 /* RepeatsTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB18751AB652C6003E32D2 /* RepeatsTimerView.swift */; };
 		32DB18781AB6546F003E32D2 /* SetColorSchemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB18771AB6546F003E32D2 /* SetColorSchemeView.swift */; };
@@ -50,9 +54,13 @@
 		322540441AB3D0D900062BD0 /* popUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpUI.swift; sourceTree = "<group>"; };
 		322540481AB410D300062BD0 /* TimePickerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerUIView.swift; sourceTree = "<group>"; };
 		322CBCD71ABA59C000EDF889 /* InformationIntermediary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationIntermediary.swift; sourceTree = "<group>"; };
+		32635D731AC0EB5E008D2AE1 /* color_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_icon.png; sourceTree = "<group>"; };
+		32635D751AC0EC28008D2AE1 /* repeats_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeats_icon.png; sourceTree = "<group>"; };
 		326BF56C1AAE503D00BC2D0D /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
+		32B63C461ABF94BD00F76FA6 /* timer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timer_icon.png; sourceTree = "<group>"; };
+		32B63C481ABF951D00F76FA6 /* done_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done_icon.png; sourceTree = "<group>"; };
 		32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
 		32DB18751AB652C6003E32D2 /* RepeatsTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatsTimerView.swift; sourceTree = "<group>"; };
 		32DB18771AB6546F003E32D2 /* SetColorSchemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetColorSchemeView.swift; sourceTree = "<group>"; };
@@ -118,6 +126,10 @@
 		321E115C1A9EAD2500247E94 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				32635D751AC0EC28008D2AE1 /* repeats_icon.png */,
+				32635D731AC0EB5E008D2AE1 /* color_icon.png */,
+				32B63C481ABF951D00F76FA6 /* done_icon.png */,
+				32B63C461ABF94BD00F76FA6 /* timer_icon.png */,
 				32B05A9B1AA5599300E21DA8 /* Question_mark.png */,
 				321E115D1A9EAD2500247E94 /* Info.plist */,
 				32BBCFE21AABDA9900C91136 /* BlankTableViewCell.swift */,
@@ -250,10 +262,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32635D741AC0EB5E008D2AE1 /* color_icon.png in Resources */,
 				321E11641A9EAD2500247E94 /* Main.storyboard in Resources */,
+				32B63C471ABF94BD00F76FA6 /* timer_icon.png in Resources */,
 				321E11691A9EAD2500247E94 /* LaunchScreen.xib in Resources */,
 				32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */,
+				32B63C491ABF951D00F76FA6 /* done_icon.png in Resources */,
 				321E11661A9EAD2500247E94 /* Images.xcassets in Resources */,
+				32635D761AC0EC28008D2AE1 /* repeats_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

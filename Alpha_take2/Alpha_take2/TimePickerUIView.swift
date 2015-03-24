@@ -57,6 +57,13 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         self.frame = _callingView!.bounds
         
+        let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
+        blurView.frame = self.bounds
+        
+        
+        self.addSubview(blurView)
+        
+        
         var timerLabel:UILabel = UILabel(frame: CGRectMake(self.frame.origin.x + 20.0, self.frame.origin.y + 20.0, self.frame.width - 40.0, 20.0))
         timerLabel.text = "Set Timer"
         timerLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
@@ -142,7 +149,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         defaultTimesSegmentControl.frame = CGRectMake(timerPickerView.frame.origin.x, timerPickerView.frame.origin.y + timerPickerView.frame.height + spaceForEach, timerPickerView.frame.width, segmentControlheight)
         defaultTimesSegmentControl.selectedSegmentIndex = 0
         defaultTimesSegmentControl.addTarget(self, action: "defaultTimeChange:", forControlEvents: UIControlEvents.ValueChanged)
-        defaultTimesSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.lightBlueColor.CGColor
+        defaultTimesSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.whiteColor.CGColor
         defaultTimesSegmentControl.layer.cornerRadius = 5.0
         defaultTimesSegmentControl.clipsToBounds = true
         
@@ -156,7 +163,7 @@ class TimePickerUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         countUpOrDownSegmentControl.frame = CGRectMake(defaultTimesSegmentControl.frame.origin.x, defaultTimesSegmentControl.frame.origin.y + defaultTimesSegmentControl.frame.height + spaceForEach, defaultTimesSegmentControl.frame.width, segmentControlheight)
         countUpOrDownSegmentControl.selectedSegmentIndex = 1
         countUpOrDownSegmentControl.addTarget(self, action: "countUpValueChange:", forControlEvents: UIControlEvents.ValueChanged)
-        countUpOrDownSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.lightBlueColor.CGColor
+        countUpOrDownSegmentControl.layer.backgroundColor = ColorPallete.sharedInstance.whiteColor.CGColor
         countUpOrDownSegmentControl.layer.cornerRadius = 5.0
         countUpOrDownSegmentControl.clipsToBounds = true
         

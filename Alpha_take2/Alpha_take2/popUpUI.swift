@@ -23,19 +23,19 @@ class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, Retu
         _callingView = callingView
         _rowSelected = rowSelected
         
-        self.frame = CGRectMake(20.0, callingView.frame.height, callingView.frame.width - 40.0, callingView.frame.height - 100.0)
-        self.backgroundColor = UIColor.clearColor()
-        self.layer.cornerRadius = 10.0
-        self.clipsToBounds = true
-        
         let blurView:UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
         blurView.frame = self.bounds
         
         
-        // adding things to the layer //
-        self.addSubview(blurView)
+        self.frame = CGRectMake(20.0, callingView.frame.height, callingView.frame.width - 40.0, callingView.frame.height - 100.0)
+        //self.backgroundColor = ColorPallete.sharedInstance.whiteColor
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
+        self.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        self.layer.borderWidth = 1.0
 
         self.displayContent(_rowSelected!)
+        self.addSubview(blurView)
         
         callingView.addSubview(self)
         
@@ -61,19 +61,17 @@ class popUpUI: UIView, ReturnInfoDelegate, ReturnInfoRepeatsOptionDelegate, Retu
             
             self.addSubview(repeatsView)
         }else if(row == 6){
-            
-            var timeInBetweenView:TimeInBetweenRepeatsView = TimeInBetweenRepeatsView()
-            timeInBetweenView.drawTimeInBetweenRepeats(self)
-            timeInBetweenView.delegate = self
-            
-            self.addSubview(timeInBetweenView)
-        }else if(row == 8){
-            
+
             var colorSchemeView:SetColorSchemeView = SetColorSchemeView()
             colorSchemeView.drawColorSchemeView(self)
             colorSchemeView.delegate = self
             
             self.addSubview(colorSchemeView)
+
+        }else if(row == 8){
+            
+            // done row //
+            
         }
     }
     
