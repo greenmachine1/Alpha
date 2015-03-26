@@ -22,9 +22,9 @@ class SetColorSchemeView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     var colorPicker:UIPickerView = UIPickerView()
     
     
-    var leftSetOfColors:[UIColor] = [UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)]
-    var centerSetOfColors:[UIColor] = [UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)]
-    var rightSetOfColors:[UIColor] = [UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)]
+    var leftSetOfColors:[UIColor] = [UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
+    var centerSetOfColors:[UIColor] = [UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
+    var rightSetOfColors:[UIColor] = [UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)]
 
     func drawColorSchemeView(callingView:UIView){
         
@@ -165,11 +165,11 @@ class SetColorSchemeView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     func setColors(){
 
-        for(var i = 0.0; i < 1.0; i = i + 0.2){
+        for(var i = 0.0; i < 1.2; i = i + 0.2){
             
-            for(var j = 0.0; j < 1.0; j = j + 0.2){
+            for(var j = 0.0; j < 1.2; j = j + 0.2){
                 
-                for(var k = 0.0; k < 1.0; k = k + 0.2){
+                for(var k = 0.0; k < 1.2; k = k + 0.2){
                     
                     leftSetOfColors.append(UIColor(red: CGFloat(i), green: CGFloat(j), blue: CGFloat(k), alpha: 0.9))
                     centerSetOfColors.append(UIColor(red: CGFloat(i), green: CGFloat(j), blue: CGFloat(k), alpha: 0.9))

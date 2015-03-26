@@ -24,9 +24,9 @@ class InformationIntermediary: NSObject {
     var timeInBetweenRepeatsInSeconds:Int = 0
     var timeInBetweenRepeatsLiteralString:String = ""
     
-    var leftColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var centerColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var rightColor:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var leftColor:UIColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    var centerColor:UIColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+    var rightColor:UIColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
     
 
     class var sharedInstance: InformationIntermediary{
@@ -50,7 +50,6 @@ class InformationIntermediary: NSObject {
         numberOfRepeats = 0
         timeInBetweenRepeatsInSeconds = 0
         timeInBetweenRepeatsLiteralString = "Repeat Options"
-        
         
     }
     

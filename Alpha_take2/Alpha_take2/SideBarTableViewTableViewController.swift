@@ -23,6 +23,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     var CORNER_RADIUS:CGFloat = 10.0
     var mainView:UIView = UIView()
     
+    var userInputField:UITextField?
+    
     
     
     
@@ -36,9 +38,9 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     
     var repeatTimerOptionsString:String = "Repeats Options"
     
-    var _leftColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var _centerColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var _rightColorScheme:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var _leftColorScheme:UIColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    var _centerColorScheme:UIColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+    var _rightColorScheme:UIColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
     
     
     // **** ---- **** //
@@ -107,25 +109,25 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         
             
             // creating the textfield entry point //
-            var userInputField:UITextField = UITextField(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0),
+            userInputField = UITextField(frame: CGRectMake(leftImage.frame.origin.x + (leftImage.frame.width + 10.0),
                 (cell!.frame.origin.y + cell!.frame.height / 4) + 15.0, 200.0, 30.0))
 
-            userInputField.backgroundColor = UIColor.whiteColor()
-            userInputField.borderStyle = UITextBorderStyle.RoundedRect
-            userInputField.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
-            userInputField.layer.borderWidth = 1.0
-            userInputField.layer.cornerRadius = 10.0
-            userInputField.clipsToBounds = true
-            userInputField.placeholder = "Optional"
-            userInputField.text = eventName
-            userInputField.clearsOnBeginEditing = true
+            userInputField!.backgroundColor = UIColor.whiteColor()
+            userInputField!.borderStyle = UITextBorderStyle.RoundedRect
+            userInputField!.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+            userInputField!.layer.borderWidth = 1.0
+            userInputField!.layer.cornerRadius = 10.0
+            userInputField!.clipsToBounds = true
+            userInputField!.placeholder = "Optional"
+            userInputField!.text = eventName
+            userInputField!.clearsOnBeginEditing = true
             
-            userInputField.delegate = self
+            userInputField!.delegate = self
             
             
             
             // event name label //
-            var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField.frame.origin.x, userInputField.frame.origin.y - 22.0, userInputField.frame.width, 20.0))
+            var nameOfEventLabel:UILabel = UILabel(frame: CGRectMake(userInputField!.frame.origin.x, userInputField!.frame.origin.y - 22.0, userInputField!.frame.width, 20.0))
             nameOfEventLabel.textColor = ColorPallete.sharedInstance.deepBlueColor
             nameOfEventLabel.text = "Set Event name"
             nameOfEventLabel.textAlignment = .Center
@@ -133,7 +135,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
             
             cell?.addSubview(leftImage)
-            cell?.addSubview(userInputField)
+            cell?.addSubview(userInputField!)
             cell?.addSubview(nameOfEventLabel)
             
 
@@ -370,10 +372,6 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             doneLabel.textAlignment = .Center
             
             
-            
-            
-            
-            
             cell?.addSubview(leftImage)
             cell?.addSubview(doneButton)
             cell?.addSubview(doneLabel)
@@ -397,6 +395,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     
     
     
+    
+    // alert view pop up //
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if(buttonIndex == 0){
             
@@ -405,14 +405,12 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     }
     
     
-    
+    // selected row //
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
         delegate?.returnOptionSelected(indexPath.row)
-        
-        
-
+    
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -453,6 +451,23 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
     // dismissing the keyboard //
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        
+        // seeing if the text field is left blank, if not then set the event name given by //
+        // the user .  If the text field is blank, we need to give the event a number for //
+        // the name of the event. //
+        if(textField.text == ""){
+            
+        }else{
+            
+            
+            InformationIntermediary.sharedInstance.eventName = userInputField!.text
+            
+            println("\(InformationIntermediary.sharedInstance.eventName)")
+            
+        }
+
+        
         return true
     }
     

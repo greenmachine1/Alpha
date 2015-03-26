@@ -11,6 +11,7 @@ import UIKit
 @objc protocol ReturnInformationFromSideBarDelegate{
     
     func returnSelected(row:Int)
+    func doneButtonPressedInSideView()
     
 }
 
@@ -101,6 +102,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     func doneButtonSelected() {
         
         self.closeSideBar()
+        delegate?.doneButtonPressedInSideView()
     }
     
     
@@ -122,7 +124,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         sideBarTableView._rightColorScheme = InformationIntermediary.sharedInstance.rightColor
         
         
-        
+        // reloading the table view //
         sideBarTableView.tableView.reloadData()
         
     }
