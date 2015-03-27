@@ -19,6 +19,7 @@
 		32635D741AC0EB5E008D2AE1 /* color_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D731AC0EB5E008D2AE1 /* color_icon.png */; };
 		32635D761AC0EC28008D2AE1 /* repeats_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D751AC0EC28008D2AE1 /* repeats_icon.png */; };
 		3264D4181AC4C12C003B9FDD /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */; };
+		3264D41A1AC4C48F003B9FDD /* CellCircleDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264D4191AC4C48F003B9FDD /* CellCircleDraw.swift */; };
 		326BF56D1AAE503D00BC2D0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF56C1AAE503D00BC2D0D /* SideBar.swift */; };
 		32850C4D1AAF9CC0007A3BAC /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */; };
 		32B05A9C1AA5599300E21DA8 /* Question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B05A9B1AA5599300E21DA8 /* Question_mark.png */; };
@@ -58,6 +59,7 @@
 		32635D731AC0EB5E008D2AE1 /* color_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_icon.png; sourceTree = "<group>"; };
 		32635D751AC0EC28008D2AE1 /* repeats_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeats_icon.png; sourceTree = "<group>"; };
 		3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		3264D4191AC4C48F003B9FDD /* CellCircleDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCircleDraw.swift; sourceTree = "<group>"; };
 		326BF56C1AAE503D00BC2D0D /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPallete.swift; path = Alpha_take2/ColorPallete.swift; sourceTree = "<group>"; };
 		32B05A9B1AA5599300E21DA8 /* Question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_mark.png; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 				321E115C1A9EAD2500247E94 /* Supporting Files */,
 				32EA21581AAE676D002E44B8 /* SideBar */,
 				32DB18741AB652A1003E32D2 /* SubViews */,
-				3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */,
+				3264D41B1AC4C8D4003B9FDD /* CellStuff */,
 			);
 			path = Alpha_take2;
 			sourceTree = "<group>";
@@ -160,6 +162,15 @@
 			children = (
 			);
 			name = TableViewSelection;
+			sourceTree = "<group>";
+		};
+		3264D41B1AC4C8D4003B9FDD /* CellStuff */ = {
+			isa = PBXGroup;
+			children = (
+				3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */,
+				3264D4191AC4C48F003B9FDD /* CellCircleDraw.swift */,
+			);
+			name = CellStuff;
 			sourceTree = "<group>";
 		};
 		327F58E01AC1247E00AAB1F8 /* BackendData */ = {
@@ -299,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32EA215A1AAE6786002E44B8 /* SideBarTableViewTableViewController.swift in Sources */,
+				3264D41A1AC4C48F003B9FDD /* CellCircleDraw.swift in Sources */,
 				322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */,
 				32DB18781AB6546F003E32D2 /* SetColorSchemeView.swift in Sources */,
 				3264D4181AC4C12C003B9FDD /* CustomCollectionViewCell.swift in Sources */,

@@ -38,12 +38,22 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     }
     
     
+    // what to display for each cell //
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as CustomCollectionViewCell
-    
-        cell.mainLabel.text = "Hello"
+        
+        // creation of the cell view which includes the center circle //
+        var newCell:CellCircleDraw = CellCircleDraw()
+        newCell.initialize(cell.cellUIView, nameOfEvent:"____")
         
         return cell
+    }
+    
+    
+    
+    // selecting a collection view cell //
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     

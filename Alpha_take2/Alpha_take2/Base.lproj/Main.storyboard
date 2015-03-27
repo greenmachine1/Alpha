@@ -34,18 +34,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itt-8j-lez">
-                                                    <rect key="frame" x="25" y="57" width="85" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEk-Rf-bb8">
+                                                    <rect key="frame" x="8" y="8" width="119" height="119"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.29315674899999999" green="0.81216169120000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="leading" secondItem="aWq-JG-1EX" secondAttribute="leadingMargin" id="21a-ze-M4e"/>
+                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="top" secondItem="aWq-JG-1EX" secondAttribute="topMargin" id="Rpr-CL-7VP"/>
+                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="trailing" secondItem="aWq-JG-1EX" secondAttribute="trailingMargin" id="aXt-lj-sgY"/>
+                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="bottom" secondItem="aWq-JG-1EX" secondAttribute="bottomMargin" id="if5-Rs-E7c"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="mainLabel" destination="itt-8j-lez" id="Us8-ov-yND"/>
+                                            <outlet property="cellUIView" destination="VEk-Rf-bb8" id="iTK-ku-A5z"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
