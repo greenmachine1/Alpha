@@ -103,6 +103,23 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         
         self.closeSideBar()
         delegate?.doneButtonPressedInSideView()
+        
+        InformationIntermediary.sharedInstance.deleteData()
+        
+        sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
+        
+        sideBarTableView.countDownOrUp = InformationIntermediary.sharedInstance.countDownOrUpBool
+        
+        sideBarTableView.repeatTimerOptionsString = InformationIntermediary.sharedInstance.timeInBetweenRepeatsLiteralString
+        
+        // setting the colors //
+        sideBarTableView._leftColorScheme = InformationIntermediary.sharedInstance.leftColor
+        sideBarTableView._centerColorScheme = InformationIntermediary.sharedInstance.centerColor
+        sideBarTableView._rightColorScheme = InformationIntermediary.sharedInstance.rightColor
+
+        
+        
+        sideBarTableView.tableView.reloadData()
     }
     
     
@@ -128,10 +145,4 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         sideBarTableView.tableView.reloadData()
         
     }
-    
-
-
-    
-    
-    
 }

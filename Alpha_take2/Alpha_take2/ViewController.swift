@@ -13,6 +13,12 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     var sidebar:SideBar = SideBar()
     var toggleSideBar:Bool = false
     
+    
+    var timerObjects:[TimerObject] = [TimerObject]()
+    
+    
+    
+    
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -34,7 +40,12 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        if(timerObjects.count != 0){
+            return timerObjects.count
+        }else{
+            return 0
+        }
     }
     
     
@@ -44,7 +55,19 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         
         // creation of the cell view which includes the center circle //
         var newCell:CellCircleDraw = CellCircleDraw()
+        
+        // setting the data for the cell //
+        newCell._normalColor = timerObjects[indexPath.row]._firstColor
+        newCell._midPointColor = timerObjects[indexPath.row]._secondColor
+        newCell._threeForthsDoneColor = timerObjects[indexPath.row]._thirdColor
+        newCell._nameOfEvent = timerObjects[indexPath.row]._name
+        newCell._numberOfRepeats = timerObjects[indexPath.row]._numberOfTimesInBetweenTimer
+        newCell._timeInBetweenRepeats = timerObjects[indexPath.row]._timeInBetweenTimers
+        
+        
         newCell.initialize(cell.cellUIView, nameOfEvent:"____")
+        
+        
         
         return cell
     }
@@ -82,8 +105,8 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     // showin a pop up view //
     func returnSelected(row: Int) {
-
-        if(row != 0){
+        
+        if(row != 0 && row != 8){
 
             var newPopUpView:popUpUI = popUpUI()
             newPopUpView.redrawView(self.view, rowSelected:row)
@@ -101,9 +124,22 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         toggleSideBar = false
         self.navigationItem.leftBarButtonItem?.title = "Add New Timer"
         
-        println("name \(InformationIntermediary.sharedInstance.eventName)")
-        println("seconds \(InformationIntermediary.sharedInstance.timeInSeconds)")
-        println("number and time of Repeats \(InformationIntermediary.sharedInstance.numberOfRepeats) \(InformationIntermediary.sharedInstance.timeInBetweenRepeatsInSeconds)")
+        var newTimerObject:TimerObject = TimerObject()
+        
+        // setting up the new timer object options //
+        newTimerObject._name = InformationIntermediary.sharedInstance.eventName
+        newTimerObject._timeInSeconds = InformationIntermediary.sharedInstance.timeInSeconds
+        newTimerObject._countUpOrDown = InformationIntermediary.sharedInstance.countDownOrUpBool
+        newTimerObject._timeInBetweenTimers = InformationIntermediary.sharedInstance.timeInBetweenRepeatsInSeconds
+        newTimerObject._numberOfTimesInBetweenTimer = InformationIntermediary.sharedInstance.numberOfRepeats
+        newTimerObject._firstColor = InformationIntermediary.sharedInstance.leftColor
+        newTimerObject._secondColor = InformationIntermediary.sharedInstance.centerColor
+        newTimerObject._thirdColor = InformationIntermediary.sharedInstance.rightColor
+        
+        
+        timerObjects.append(newTimerObject)
+        mainCollectionView.reloadData()
+        
         
         
         

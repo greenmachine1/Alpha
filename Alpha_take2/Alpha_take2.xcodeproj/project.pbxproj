@@ -16,6 +16,7 @@
 		322540451AB3D0D900062BD0 /* popUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540441AB3D0D900062BD0 /* popUpUI.swift */; };
 		322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322540481AB410D300062BD0 /* TimePickerUIView.swift */; };
 		322CBCD81ABA59C000EDF889 /* InformationIntermediary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CBCD71ABA59C000EDF889 /* InformationIntermediary.swift */; };
+		325C549A1AC52802008B28A3 /* TimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C54991AC52802008B28A3 /* TimerObject.swift */; };
 		32635D741AC0EB5E008D2AE1 /* color_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D731AC0EB5E008D2AE1 /* color_icon.png */; };
 		32635D761AC0EC28008D2AE1 /* repeats_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32635D751AC0EC28008D2AE1 /* repeats_icon.png */; };
 		3264D4181AC4C12C003B9FDD /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */; };
@@ -56,6 +57,7 @@
 		322540441AB3D0D900062BD0 /* popUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpUI.swift; sourceTree = "<group>"; };
 		322540481AB410D300062BD0 /* TimePickerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerUIView.swift; sourceTree = "<group>"; };
 		322CBCD71ABA59C000EDF889 /* InformationIntermediary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationIntermediary.swift; sourceTree = "<group>"; };
+		325C54991AC52802008B28A3 /* TimerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerObject.swift; sourceTree = "<group>"; };
 		32635D731AC0EB5E008D2AE1 /* color_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_icon.png; sourceTree = "<group>"; };
 		32635D751AC0EC28008D2AE1 /* repeats_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeats_icon.png; sourceTree = "<group>"; };
 		3264D4171AC4C12C003B9FDD /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				32850C4C1AAF9CBF007A3BAC /* ColorPallete.swift */,
 				322CBCD71ABA59C000EDF889 /* InformationIntermediary.swift */,
+				325C54991AC52802008B28A3 /* TimerObject.swift */,
 			);
 			name = BackendData;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				321E115F1A9EAD2500247E94 /* AppDelegate.swift in Sources */,
 				32DB187A1AB6558A003E32D2 /* TimeInBetweenRepeatsView.swift in Sources */,
 				322540491AB410D300062BD0 /* TimePickerUIView.swift in Sources */,
+				325C549A1AC52802008B28A3 /* TimerObject.swift in Sources */,
 				322CBCD81ABA59C000EDF889 /* InformationIntermediary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -401,6 +401,7 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
         if(buttonIndex == 0){
             
             delegate?.doneButtonSelected()
+            
         }
     }
     
