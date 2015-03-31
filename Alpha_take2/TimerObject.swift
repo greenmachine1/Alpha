@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol ReturnTimerDelegate{
     
-    func returnTimeAndName(name:String, time:Int)
+    func returnTimeAndName(name:String, time:String)
     
 }
 
@@ -23,8 +23,7 @@ class TimerObject: NSObject {
     var _timeForRepeats:Int = 0
     
     var newTimer:NSTimer = NSTimer()
-    
-    var count:Int = 0
+
     
     var delegate:ReturnTimerDelegate?
     
@@ -45,15 +44,41 @@ class TimerObject: NSObject {
     
     func timerFire(){
         
-        count++
-        if(count != _time){
+        _time--
+        if(_time != 0){
             
-            delegate?.returnTimeAndName(_name, time: count)
+            delegate?.returnTimeAndName(_name, time: self.formatTime(_time))
+            self.formatTime(_time)
             
         }else{
             newTimer.invalidate()
         }
         
+    }
+    
+    
+    
+    func formatTime(totalTimeInSeconds:Int) -> String{
+        
+        var hours = totalTimeInSeconds / 60 / 60
+        var minutes = totalTimeInSeconds / 60 % 60
+        var seconds = totalTimeInSeconds % 60
+        
+        var hoursString = "\(hours)"
+        var minutesString = "\(minutes)"
+        var secondsString = "\(seconds)"
+        
+        if(hours < 10){
+            hoursString = "0\(hours)"
+        }
+        if(minutes < 10){
+            minutesString = "0\(minutes)"
+        }
+        if(seconds < 10){
+            secondsString = "0\(seconds)"
+        }
+
+        return "\(hoursString):\(minutesString):\(secondsString)"
     }
     
        

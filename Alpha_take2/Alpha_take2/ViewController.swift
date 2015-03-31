@@ -138,10 +138,10 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     
     
-    func returnTimeAndName(name: String, time: Int) {
+    func returnTimeAndName(name: String, time: String) {
         
         println("here \(name) and time \(time)")
-        dictionaryOfTimerObjects.updateValue("\(time)", forKey: name)
+        dictionaryOfTimerObjects.updateValue(time, forKey: name)
         
         mainCollectionView.reloadData()
         
