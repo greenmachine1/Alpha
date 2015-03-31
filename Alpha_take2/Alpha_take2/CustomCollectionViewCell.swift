@@ -9,7 +9,9 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var cellUIView: UIView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
 
 }

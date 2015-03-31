@@ -2,32 +2,59 @@
 //  TimerObject.swift
 //  Alpha_take2
 //
-//  Created by Cory Green on 3/26/15.
+//  Created by Cory Green on 3/30/15.
 //  Copyright (c) 2015 Cory Green. All rights reserved.
 //
 
 import UIKit
 
+@objc protocol ReturnTimerDelegate{
+    
+    func returnTimeAndName(name:String, time:Int)
+    
+}
+
 class TimerObject: NSObject {
     
     var _name:String = ""
-    var _timeInSeconds:Int = 0
-    
-    // false means count down //
+    var _time:Int = 0
     var _countUpOrDown:Bool = false
-    var _numberOfTimesInBetweenTimer:Int = 0
-    var _timeInBetweenTimers:Int = 0
+    var _numberOfRepeats:Int = 0
+    var _timeForRepeats:Int = 0
     
-    var _firstColor:UIColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-    var _secondColor:UIColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-    var _thirdColor:UIColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+    var newTimer:NSTimer = NSTimer()
+    
+    var count:Int = 0
+    
+    var delegate:ReturnTimerDelegate?
+    
     
     override init(){
         super.init()
+        
+        
     }
     
     
-   
+    func startTimer(){
+        
+        newTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFire", userInfo: nil, repeats: true)
+        newTimer.fire()
+        
+    }
+    
+    func timerFire(){
+        
+        count++
+        if(count != _time){
+            
+            delegate?.returnTimeAndName(_name, time: count)
+            
+        }else{
+            newTimer.invalidate()
+        }
+        
+    }
+    
+       
 }
-
-

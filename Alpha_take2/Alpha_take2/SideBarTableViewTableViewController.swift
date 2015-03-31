@@ -461,10 +461,8 @@ class SideBarTableViewTableViewController: UITableViewController, UITextFieldDel
             
         }else{
             
-            
             InformationIntermediary.sharedInstance.eventName = userInputField!.text
             
-            println("\(InformationIntermediary.sharedInstance.eventName)")
             
         }
 

@@ -104,18 +104,18 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
         self.closeSideBar()
         delegate?.doneButtonPressedInSideView()
         
+        
+        // deleting the data afterwards //
         InformationIntermediary.sharedInstance.deleteData()
         
+        // reloading the side bar with blank data //
         sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
-        
         sideBarTableView.countDownOrUp = InformationIntermediary.sharedInstance.countDownOrUpBool
-        
         sideBarTableView.repeatTimerOptionsString = InformationIntermediary.sharedInstance.timeInBetweenRepeatsLiteralString
-        
-        // setting the colors //
         sideBarTableView._leftColorScheme = InformationIntermediary.sharedInstance.leftColor
         sideBarTableView._centerColorScheme = InformationIntermediary.sharedInstance.centerColor
         sideBarTableView._rightColorScheme = InformationIntermediary.sharedInstance.rightColor
+        
 
         
         
@@ -130,9 +130,7 @@ class SideBar: NSObject, ReturnInformationFromSideBar{
     func updateSideBar(sender:AnyObject){
         
         sideBarTableView._literalTimeString = InformationIntermediary.sharedInstance.literalTimeString
-        
         sideBarTableView.countDownOrUp = InformationIntermediary.sharedInstance.countDownOrUpBool
-        
         sideBarTableView.repeatTimerOptionsString = InformationIntermediary.sharedInstance.timeInBetweenRepeatsLiteralString
         
         // setting the colors //

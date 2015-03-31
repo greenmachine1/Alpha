@@ -55,4 +55,5 @@ class InformationIntermediary: NSObject {
         centerColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
         rightColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
     }
+    
 }

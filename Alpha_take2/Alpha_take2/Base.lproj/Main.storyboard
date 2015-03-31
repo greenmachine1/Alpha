@@ -34,20 +34,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEk-Rf-bb8">
-                                                    <rect key="frame" x="8" y="8" width="119" height="119"/>
-                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfw-Vo-z0G">
+                                                    <rect key="frame" x="8" y="35" width="119" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4j-Jb-Sl6">
+                                                    <rect key="frame" x="8" y="73" width="119" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="SOn-7v-F4C"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="leading" secondItem="aWq-JG-1EX" secondAttribute="leadingMargin" id="21a-ze-M4e"/>
-                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="top" secondItem="aWq-JG-1EX" secondAttribute="topMargin" id="Rpr-CL-7VP"/>
-                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="trailing" secondItem="aWq-JG-1EX" secondAttribute="trailingMargin" id="aXt-lj-sgY"/>
-                                            <constraint firstItem="VEk-Rf-bb8" firstAttribute="bottom" secondItem="aWq-JG-1EX" secondAttribute="bottomMargin" id="if5-Rs-E7c"/>
+                                            <constraint firstItem="Tfw-Vo-z0G" firstAttribute="top" secondItem="aWq-JG-1EX" secondAttribute="topMargin" constant="27" id="8Zr-w3-BNg"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="m4j-Jb-Sl6" secondAttribute="bottom" constant="33" id="B0f-A3-WjW"/>
+                                            <constraint firstItem="m4j-Jb-Sl6" firstAttribute="trailing" secondItem="aWq-JG-1EX" secondAttribute="trailingMargin" id="HLZ-8o-z7I"/>
+                                            <constraint firstItem="m4j-Jb-Sl6" firstAttribute="leading" secondItem="aWq-JG-1EX" secondAttribute="leadingMargin" id="Hiv-fg-sPe"/>
+                                            <constraint firstItem="m4j-Jb-Sl6" firstAttribute="top" secondItem="Tfw-Vo-z0G" secondAttribute="bottom" constant="17" id="Vl2-og-HSB"/>
+                                            <constraint firstItem="Tfw-Vo-z0G" firstAttribute="leading" secondItem="m4j-Jb-Sl6" secondAttribute="leading" id="Was-wr-SuH"/>
+                                            <constraint firstItem="Tfw-Vo-z0G" firstAttribute="trailing" secondItem="m4j-Jb-Sl6" secondAttribute="trailing" id="k4M-Xs-Xmb"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="cellUIView" destination="VEk-Rf-bb8" id="iTK-ku-A5z"/>
+                                            <outlet property="nameLabel" destination="Tfw-Vo-z0G" id="5Wl-Nf-7yj"/>
+                                            <outlet property="timeLabel" destination="m4j-Jb-Sl6" id="bfO-uR-so7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

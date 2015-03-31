@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UIPopoverPresentationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate{
+class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UIPopoverPresentationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReturnTimerDelegate{
     
     var sidebar:SideBar = SideBar()
     var toggleSideBar:Bool = false
-    
-    
-    var timerObjects:[TimerObject] = [TimerObject]()
-    
-    
+
+
+    var arrayOfTimerObjects:[TimerObject] = [TimerObject]()
+
+    var dictionaryOfTimerObjects:[String:String] = [String:String]()
+    var arrayOfEventNames:[String] = [String]()
     
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,31 +43,22 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if(timerObjects.count != 0){
-            return timerObjects.count
-        }else{
-            return 0
-        }
+        return dictionaryOfTimerObjects.count
     }
     
     
     // what to display for each cell //
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as CustomCollectionViewCell
         
-        // creation of the cell view which includes the center circle //
-        var newCell:CellCircleDraw = CellCircleDraw()
-        
-        // setting the data for the cell //
-        newCell._normalColor = timerObjects[indexPath.row]._firstColor
-        newCell._midPointColor = timerObjects[indexPath.row]._secondColor
-        newCell._threeForthsDoneColor = timerObjects[indexPath.row]._thirdColor
-        newCell._nameOfEvent = timerObjects[indexPath.row]._name
-        newCell._numberOfRepeats = timerObjects[indexPath.row]._numberOfTimesInBetweenTimer
-        newCell._timeInBetweenRepeats = timerObjects[indexPath.row]._timeInBetweenTimers
+        cell.nameLabel.text = arrayOfEventNames[indexPath.row]
+        cell.timeLabel.text = dictionaryOfTimerObjects[arrayOfEventNames[indexPath.row]]
         
         
-        newCell.initialize(cell.cellUIView, nameOfEvent:"____")
+        
+        
+        
         
         
         
@@ -124,24 +117,33 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         toggleSideBar = false
         self.navigationItem.leftBarButtonItem?.title = "Add New Timer"
         
-        var newTimerObject:TimerObject = TimerObject()
-        
-        // setting up the new timer object options //
-        newTimerObject._name = InformationIntermediary.sharedInstance.eventName
-        newTimerObject._timeInSeconds = InformationIntermediary.sharedInstance.timeInSeconds
-        newTimerObject._countUpOrDown = InformationIntermediary.sharedInstance.countDownOrUpBool
-        newTimerObject._timeInBetweenTimers = InformationIntermediary.sharedInstance.timeInBetweenRepeatsInSeconds
-        newTimerObject._numberOfTimesInBetweenTimer = InformationIntermediary.sharedInstance.numberOfRepeats
-        newTimerObject._firstColor = InformationIntermediary.sharedInstance.leftColor
-        newTimerObject._secondColor = InformationIntermediary.sharedInstance.centerColor
-        newTimerObject._thirdColor = InformationIntermediary.sharedInstance.rightColor
         
         
-        timerObjects.append(newTimerObject)
+        var newTimer:TimerObject = TimerObject()
+        newTimer._name = InformationIntermediary.sharedInstance.eventName
+        newTimer._time = InformationIntermediary.sharedInstance.timeInSeconds
+        
+        arrayOfEventNames.append(newTimer._name)
+        
+        
+        newTimer.delegate = self
+        
+        newTimer.startTimer()
+
+        self.mainCollectionView.reloadData()
+        
+    
+    }
+    
+    
+    
+    
+    func returnTimeAndName(name: String, time: Int) {
+        
+        println("here \(name) and time \(time)")
+        dictionaryOfTimerObjects.updateValue("\(time)", forKey: name)
+        
         mainCollectionView.reloadData()
-        
-        
-        
         
     }
     
