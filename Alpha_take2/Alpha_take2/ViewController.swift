@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UIPopoverPresentationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReturnTimerDelegate{
+class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UIPopoverPresentationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReturnTimerDelegate, UIAlertViewDelegate{
     
     var sidebar:SideBar = SideBar()
     var toggleSideBar:Bool = false
@@ -18,6 +18,8 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
 
     var dictionaryOfTimerObjects:[String:String] = [String:String]()
     var arrayOfEventNames:[String] = [String]()
+    
+    var rowClickedOnInCollectionView:Int = 0
     
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -43,7 +45,7 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return dictionaryOfTimerObjects.count
+        return arrayOfEventNames.count
     }
     
     
@@ -52,23 +54,65 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as CustomCollectionViewCell
         
+        
+        cell.backgroundColor = UIColor.clearColor()
+        cell.layer.cornerRadius = 10.0
+        cell.clipsToBounds = true
+        cell.layer.borderColor = ColorPallete.sharedInstance.deepBlueColor.CGColor
+        cell.layer.borderWidth = 1.0
+        
         cell.nameLabel.text = arrayOfEventNames[indexPath.row]
         cell.timeLabel.text = dictionaryOfTimerObjects[arrayOfEventNames[indexPath.row]]
         
-        
-        
-        
-        
-        
-        
-        
+
         return cell
     }
     
     
     
     // selecting a collection view cell //
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var alertUser:UIAlertView = UIAlertView(title: "Event \(arrayOfEventNames[indexPath.row])", message: "What do you wish to do?", delegate: self, cancelButtonTitle: "Stop", otherButtonTitles: "Resume", "Delete")
+        
+        rowClickedOnInCollectionView = indexPath.row
+        
+        alertUser.delegate = self
+        alertUser.show()
+    }
+    
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        println("button clicked = \(buttonIndex)")
+        println("clicked on row \(rowClickedOnInCollectionView)")
+        
+        
+        if(buttonIndex == 0){
+            
+            println("Stop")
+            
+            // stopping the timer //
+            arrayOfTimerObjects[rowClickedOnInCollectionView].stopTimer()
+            
+        }else if(buttonIndex == 1){
+            
+            println("Resume")
+            arrayOfTimerObjects[rowClickedOnInCollectionView].startTimer()
+            
+        }else if(buttonIndex == 2){
+            
+            println("Delete")
+            
+            arrayOfTimerObjects[rowClickedOnInCollectionView].stopTimer()
+            
+            
+            dictionaryOfTimerObjects.removeValueForKey(arrayOfEventNames[rowClickedOnInCollectionView])
+            arrayOfTimerObjects.removeAtIndex(rowClickedOnInCollectionView)
+            arrayOfEventNames.removeAtIndex(rowClickedOnInCollectionView)
+            
+            mainCollectionView.reloadData()
+        }
         
     }
     
@@ -124,7 +168,7 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
         newTimer._time = InformationIntermediary.sharedInstance.timeInSeconds
         
         arrayOfEventNames.append(newTimer._name)
-        
+        arrayOfTimerObjects.append(newTimer)
         
         newTimer.delegate = self
         
@@ -140,7 +184,6 @@ class ViewController: UIViewController, ReturnInformationFromSideBarDelegate, UI
     
     func returnTimeAndName(name: String, time: String) {
         
-        println("here \(name) and time \(time)")
         dictionaryOfTimerObjects.updateValue(time, forKey: name)
         
         mainCollectionView.reloadData()

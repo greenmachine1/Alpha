@@ -57,6 +57,13 @@ class TimerObject: NSObject {
     }
     
     
+    func stopTimer(){
+        
+        newTimer.invalidate()
+        
+    }
+    
+    
     
     func formatTime(totalTimeInSeconds:Int) -> String{
         
